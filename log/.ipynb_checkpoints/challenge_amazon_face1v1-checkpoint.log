@@ -1,0 +1,1238 @@
+----------------Environment Versions----------------
+- Python    : 3.7.3 
+- PyTorch   : 1.1.0
+- TorchVison: 0.3.0
+- USE_GPU   : True
+----------------------------------------------------
+Parallel mode was going ...
+Model loading was finished ...
+Data loading was finished ...
+epoch :  1|45, iter :  300| 981,  loss : 23.5407, batch_ave_acc : 0.0000
+epoch :  1|45, iter :  600| 981,  loss : 21.3772, batch_ave_acc : 0.0005
+epoch :  1|45, iter :  900| 981,  loss : 19.7033, batch_ave_acc : 0.0024
+train_loss : 19.3205
+fold :  0, thresh : 0.370, test_acc : 0.9416
+fold :  1, thresh : 0.370, test_acc : 0.9350
+fold :  2, thresh : 0.370, test_acc : 0.9200
+fold :  3, thresh : 0.360, test_acc : 0.9283
+fold :  4, thresh : 0.370, test_acc : 0.9267
+fold :  5, thresh : 0.370, test_acc : 0.9333
+fold :  6, thresh : 0.370, test_acc : 0.9383
+fold :  7, thresh : 0.365, test_acc : 0.9450
+fold :  8, thresh : 0.365, test_acc : 0.9350
+fold :  9, thresh : 0.370, test_acc : 0.9400
+verification was finished, best_thresh : 0.3680, test_acc : 0.9343
+fold :  0, thresh : 0.355, test_acc : 0.8616
+fold :  1, thresh : 0.355, test_acc : 0.8622
+fold :  2, thresh : 0.350, test_acc : 0.8590
+fold :  3, thresh : 0.355, test_acc : 0.8692
+fold :  4, thresh : 0.355, test_acc : 0.8729
+fold :  5, thresh : 0.350, test_acc : 0.8748
+fold :  6, thresh : 0.350, test_acc : 0.8780
+fold :  7, thresh : 0.355, test_acc : 0.8609
+fold :  8, thresh : 0.355, test_acc : 0.8717
+fold :  9, thresh : 0.355, test_acc : 0.8743
+verification was finished, best_thresh : 0.3535, test_acc : 0.8685
+Single epoch cost time : 21.19 mins
+****************new SOTA was found****************
+epoch :  2|45, iter :  300| 981,  loss : 13.6600, batch_ave_acc : 0.0174
+epoch :  2|45, iter :  600| 981,  loss : 13.3764, batch_ave_acc : 0.0204
+epoch :  2|45, iter :  900| 981,  loss : 13.0636, batch_ave_acc : 0.0241
+train_loss : 12.9844
+fold :  0, thresh : 0.335, test_acc : 0.9566
+fold :  1, thresh : 0.335, test_acc : 0.9583
+fold :  2, thresh : 0.340, test_acc : 0.9617
+fold :  3, thresh : 0.350, test_acc : 0.9667
+fold :  4, thresh : 0.350, test_acc : 0.9533
+fold :  5, thresh : 0.350, test_acc : 0.9617
+fold :  6, thresh : 0.330, test_acc : 0.9567
+fold :  7, thresh : 0.335, test_acc : 0.9467
+fold :  8, thresh : 0.350, test_acc : 0.9667
+fold :  9, thresh : 0.345, test_acc : 0.9633
+verification was finished, best_thresh : 0.3420, test_acc : 0.9592
+fold :  0, thresh : 0.345, test_acc : 0.9298
+fold :  1, thresh : 0.345, test_acc : 0.9178
+fold :  2, thresh : 0.345, test_acc : 0.9140
+fold :  3, thresh : 0.345, test_acc : 0.9210
+fold :  4, thresh : 0.345, test_acc : 0.9254
+fold :  5, thresh : 0.345, test_acc : 0.9216
+fold :  6, thresh : 0.330, test_acc : 0.9279
+fold :  7, thresh : 0.345, test_acc : 0.9159
+fold :  8, thresh : 0.345, test_acc : 0.9343
+fold :  9, thresh : 0.325, test_acc : 0.9166
+verification was finished, best_thresh : 0.3415, test_acc : 0.9224
+Single epoch cost time : 20.70 mins
+****************new SOTA was found****************
+epoch :  3|45, iter :  300| 981,  loss : 11.3536, batch_ave_acc : 0.0446
+epoch :  3|45, iter :  600| 981,  loss : 11.3395, batch_ave_acc : 0.0471
+epoch :  3|45, iter :  900| 981,  loss : 11.2675, batch_ave_acc : 0.0493
+train_loss : 11.2444
+fold :  0, thresh : 0.345, test_acc : 0.9616
+fold :  1, thresh : 0.345, test_acc : 0.9717
+fold :  2, thresh : 0.345, test_acc : 0.9650
+fold :  3, thresh : 0.345, test_acc : 0.9600
+fold :  4, thresh : 0.345, test_acc : 0.9717
+fold :  5, thresh : 0.345, test_acc : 0.9667
+fold :  6, thresh : 0.345, test_acc : 0.9800
+fold :  7, thresh : 0.345, test_acc : 0.9717
+fold :  8, thresh : 0.345, test_acc : 0.9683
+fold :  9, thresh : 0.345, test_acc : 0.9783
+verification was finished, best_thresh : 0.3450, test_acc : 0.9695
+fold :  0, thresh : 0.315, test_acc : 0.9450
+fold :  1, thresh : 0.315, test_acc : 0.9355
+fold :  2, thresh : 0.300, test_acc : 0.9241
+fold :  3, thresh : 0.300, test_acc : 0.9431
+fold :  4, thresh : 0.315, test_acc : 0.9431
+fold :  5, thresh : 0.300, test_acc : 0.9418
+fold :  6, thresh : 0.300, test_acc : 0.9387
+fold :  7, thresh : 0.300, test_acc : 0.9349
+fold :  8, thresh : 0.300, test_acc : 0.9418
+fold :  9, thresh : 0.300, test_acc : 0.9406
+verification was finished, best_thresh : 0.3045, test_acc : 0.9389
+Single epoch cost time : 20.60 mins
+****************new SOTA was found****************
+epoch :  4|45, iter :  300| 981,  loss : 10.3862, batch_ave_acc : 0.0671
+epoch :  4|45, iter :  600| 981,  loss : 10.4515, batch_ave_acc : 0.0672
+epoch :  4|45, iter :  900| 981,  loss : 10.4367, batch_ave_acc : 0.0684
+train_loss : 10.4274
+fold :  0, thresh : 0.360, test_acc : 0.9733
+fold :  1, thresh : 0.350, test_acc : 0.9700
+fold :  2, thresh : 0.350, test_acc : 0.9650
+fold :  3, thresh : 0.365, test_acc : 0.9700
+fold :  4, thresh : 0.365, test_acc : 0.9683
+fold :  5, thresh : 0.365, test_acc : 0.9717
+fold :  6, thresh : 0.365, test_acc : 0.9783
+fold :  7, thresh : 0.365, test_acc : 0.9733
+fold :  8, thresh : 0.365, test_acc : 0.9667
+fold :  9, thresh : 0.365, test_acc : 0.9767
+verification was finished, best_thresh : 0.3615, test_acc : 0.9713
+fold :  0, thresh : 0.360, test_acc : 0.9576
+fold :  1, thresh : 0.360, test_acc : 0.9456
+fold :  2, thresh : 0.355, test_acc : 0.9298
+fold :  3, thresh : 0.360, test_acc : 0.9469
+fold :  4, thresh : 0.360, test_acc : 0.9539
+fold :  5, thresh : 0.355, test_acc : 0.9437
+fold :  6, thresh : 0.355, test_acc : 0.9526
+fold :  7, thresh : 0.360, test_acc : 0.9501
+fold :  8, thresh : 0.355, test_acc : 0.9513
+fold :  9, thresh : 0.355, test_acc : 0.9539
+verification was finished, best_thresh : 0.3575, test_acc : 0.9485
+Single epoch cost time : 22.09 mins
+****************new SOTA was found****************
+epoch :  5|45, iter :  300| 981,  loss : 9.8073, batch_ave_acc : 0.0846
+epoch :  5|45, iter :  600| 981,  loss : 9.8989, batch_ave_acc : 0.0839
+epoch :  5|45, iter :  900| 981,  loss : 9.9232, batch_ave_acc : 0.0842
+train_loss : 9.9260
+fold :  0, thresh : 0.350, test_acc : 0.9750
+fold :  1, thresh : 0.355, test_acc : 0.9817
+fold :  2, thresh : 0.365, test_acc : 0.9667
+fold :  3, thresh : 0.365, test_acc : 0.9750
+fold :  4, thresh : 0.360, test_acc : 0.9833
+fold :  5, thresh : 0.355, test_acc : 0.9750
+fold :  6, thresh : 0.350, test_acc : 0.9850
+fold :  7, thresh : 0.365, test_acc : 0.9817
+fold :  8, thresh : 0.350, test_acc : 0.9833
+fold :  9, thresh : 0.365, test_acc : 0.9800
+verification was finished, best_thresh : 0.3580, test_acc : 0.9787
+fold :  0, thresh : 0.375, test_acc : 0.9640
+fold :  1, thresh : 0.375, test_acc : 0.9558
+fold :  2, thresh : 0.375, test_acc : 0.9381
+fold :  3, thresh : 0.375, test_acc : 0.9608
+fold :  4, thresh : 0.375, test_acc : 0.9583
+fold :  5, thresh : 0.375, test_acc : 0.9507
+fold :  6, thresh : 0.375, test_acc : 0.9570
+fold :  7, thresh : 0.375, test_acc : 0.9526
+fold :  8, thresh : 0.375, test_acc : 0.9608
+fold :  9, thresh : 0.375, test_acc : 0.9608
+verification was finished, best_thresh : 0.3750, test_acc : 0.9559
+Single epoch cost time : 22.30 mins
+****************new SOTA was found****************
+epoch :  6|45, iter :  300| 981,  loss : 9.4078, batch_ave_acc : 0.0996
+epoch :  6|45, iter :  600| 981,  loss : 9.5267, batch_ave_acc : 0.0968
+epoch :  6|45, iter :  900| 981,  loss : 9.5557, batch_ave_acc : 0.0972
+train_loss : 9.5580
+fold :  0, thresh : 0.370, test_acc : 0.9716
+fold :  1, thresh : 0.355, test_acc : 0.9850
+fold :  2, thresh : 0.355, test_acc : 0.9800
+fold :  3, thresh : 0.355, test_acc : 0.9750
+fold :  4, thresh : 0.365, test_acc : 0.9767
+fold :  5, thresh : 0.370, test_acc : 0.9733
+fold :  6, thresh : 0.355, test_acc : 0.9783
+fold :  7, thresh : 0.355, test_acc : 0.9750
+fold :  8, thresh : 0.355, test_acc : 0.9783
+fold :  9, thresh : 0.370, test_acc : 0.9867
+verification was finished, best_thresh : 0.3605, test_acc : 0.9780
+fold :  0, thresh : 0.335, test_acc : 0.9652
+fold :  1, thresh : 0.335, test_acc : 0.9627
+fold :  2, thresh : 0.335, test_acc : 0.9444
+fold :  3, thresh : 0.335, test_acc : 0.9558
+fold :  4, thresh : 0.335, test_acc : 0.9576
+fold :  5, thresh : 0.335, test_acc : 0.9589
+fold :  6, thresh : 0.335, test_acc : 0.9551
+fold :  7, thresh : 0.335, test_acc : 0.9532
+fold :  8, thresh : 0.335, test_acc : 0.9602
+fold :  9, thresh : 0.335, test_acc : 0.9646
+verification was finished, best_thresh : 0.3350, test_acc : 0.9578
+Single epoch cost time : 21.70 mins
+epoch :  7|45, iter :  300| 981,  loss : 9.1415, batch_ave_acc : 0.1100
+epoch :  7|45, iter :  600| 981,  loss : 9.2492, batch_ave_acc : 0.1079
+epoch :  7|45, iter :  900| 981,  loss : 9.2851, batch_ave_acc : 0.1076
+train_loss : 9.2925
+fold :  0, thresh : 0.380, test_acc : 0.9850
+fold :  1, thresh : 0.355, test_acc : 0.9767
+fold :  2, thresh : 0.380, test_acc : 0.9767
+fold :  3, thresh : 0.380, test_acc : 0.9817
+fold :  4, thresh : 0.380, test_acc : 0.9733
+fold :  5, thresh : 0.365, test_acc : 0.9733
+fold :  6, thresh : 0.380, test_acc : 0.9833
+fold :  7, thresh : 0.365, test_acc : 0.9700
+fold :  8, thresh : 0.380, test_acc : 0.9800
+fold :  9, thresh : 0.355, test_acc : 0.9700
+verification was finished, best_thresh : 0.3720, test_acc : 0.9770
+fold :  0, thresh : 0.355, test_acc : 0.9558
+fold :  1, thresh : 0.350, test_acc : 0.9456
+fold :  2, thresh : 0.350, test_acc : 0.9355
+fold :  3, thresh : 0.345, test_acc : 0.9539
+fold :  4, thresh : 0.355, test_acc : 0.9494
+fold :  5, thresh : 0.350, test_acc : 0.9526
+fold :  6, thresh : 0.355, test_acc : 0.9488
+fold :  7, thresh : 0.350, test_acc : 0.9602
+fold :  8, thresh : 0.350, test_acc : 0.9501
+fold :  9, thresh : 0.355, test_acc : 0.9545
+verification was finished, best_thresh : 0.3515, test_acc : 0.9506
+Single epoch cost time : 20.42 mins
+epoch :  8|45, iter :  300| 981,  loss : 8.9108, batch_ave_acc : 0.1195
+epoch :  8|45, iter :  600| 981,  loss : 9.0317, batch_ave_acc : 0.1169
+epoch :  8|45, iter :  900| 981,  loss : 9.0750, batch_ave_acc : 0.1162
+train_loss : 9.0842
+fold :  0, thresh : 0.345, test_acc : 0.9816
+fold :  1, thresh : 0.345, test_acc : 0.9800
+fold :  2, thresh : 0.350, test_acc : 0.9800
+fold :  3, thresh : 0.345, test_acc : 0.9733
+fold :  4, thresh : 0.350, test_acc : 0.9783
+fold :  5, thresh : 0.345, test_acc : 0.9800
+fold :  6, thresh : 0.345, test_acc : 0.9800
+fold :  7, thresh : 0.345, test_acc : 0.9800
+fold :  8, thresh : 0.350, test_acc : 0.9817
+fold :  9, thresh : 0.345, test_acc : 0.9817
+verification was finished, best_thresh : 0.3465, test_acc : 0.9797
+fold :  0, thresh : 0.360, test_acc : 0.9595
+fold :  1, thresh : 0.360, test_acc : 0.9583
+fold :  2, thresh : 0.360, test_acc : 0.9513
+fold :  3, thresh : 0.360, test_acc : 0.9576
+fold :  4, thresh : 0.360, test_acc : 0.9621
+fold :  5, thresh : 0.360, test_acc : 0.9627
+fold :  6, thresh : 0.360, test_acc : 0.9608
+fold :  7, thresh : 0.360, test_acc : 0.9564
+fold :  8, thresh : 0.360, test_acc : 0.9595
+fold :  9, thresh : 0.360, test_acc : 0.9653
+verification was finished, best_thresh : 0.3600, test_acc : 0.9594
+Single epoch cost time : 20.35 mins
+****************new SOTA was found****************
+epoch :  9|45, iter :  300| 981,  loss : 8.7332, batch_ave_acc : 0.1290
+epoch :  9|45, iter :  600| 981,  loss : 8.8671, batch_ave_acc : 0.1242
+epoch :  9|45, iter :  900| 981,  loss : 8.9090, batch_ave_acc : 0.1238
+train_loss : 8.9186
+fold :  0, thresh : 0.330, test_acc : 0.9866
+fold :  1, thresh : 0.330, test_acc : 0.9783
+fold :  2, thresh : 0.330, test_acc : 0.9867
+fold :  3, thresh : 0.340, test_acc : 0.9833
+fold :  4, thresh : 0.330, test_acc : 0.9867
+fold :  5, thresh : 0.340, test_acc : 0.9850
+fold :  6, thresh : 0.340, test_acc : 0.9800
+fold :  7, thresh : 0.330, test_acc : 0.9733
+fold :  8, thresh : 0.325, test_acc : 0.9833
+fold :  9, thresh : 0.330, test_acc : 0.9767
+verification was finished, best_thresh : 0.3325, test_acc : 0.9820
+fold :  0, thresh : 0.350, test_acc : 0.9652
+fold :  1, thresh : 0.345, test_acc : 0.9608
+fold :  2, thresh : 0.340, test_acc : 0.9450
+fold :  3, thresh : 0.340, test_acc : 0.9671
+fold :  4, thresh : 0.345, test_acc : 0.9627
+fold :  5, thresh : 0.340, test_acc : 0.9633
+fold :  6, thresh : 0.340, test_acc : 0.9589
+fold :  7, thresh : 0.340, test_acc : 0.9627
+fold :  8, thresh : 0.345, test_acc : 0.9640
+fold :  9, thresh : 0.345, test_acc : 0.9703
+verification was finished, best_thresh : 0.3430, test_acc : 0.9620
+Single epoch cost time : 20.40 mins
+****************new SOTA was found****************
+epoch : 10|45, iter :  300| 981,  loss : 8.5658, batch_ave_acc : 0.1373
+epoch : 10|45, iter :  600| 981,  loss : 8.7054, batch_ave_acc : 0.1328
+epoch : 10|45, iter :  900| 981,  loss : 8.7625, batch_ave_acc : 0.1312
+train_loss : 8.7752
+fold :  0, thresh : 0.335, test_acc : 0.9816
+fold :  1, thresh : 0.335, test_acc : 0.9817
+fold :  2, thresh : 0.335, test_acc : 0.9783
+fold :  3, thresh : 0.355, test_acc : 0.9817
+fold :  4, thresh : 0.355, test_acc : 0.9800
+fold :  5, thresh : 0.355, test_acc : 0.9733
+fold :  6, thresh : 0.355, test_acc : 0.9750
+fold :  7, thresh : 0.335, test_acc : 0.9750
+fold :  8, thresh : 0.335, test_acc : 0.9800
+fold :  9, thresh : 0.355, test_acc : 0.9800
+verification was finished, best_thresh : 0.3450, test_acc : 0.9787
+fold :  0, thresh : 0.340, test_acc : 0.9703
+fold :  1, thresh : 0.335, test_acc : 0.9652
+fold :  2, thresh : 0.340, test_acc : 0.9539
+fold :  3, thresh : 0.340, test_acc : 0.9595
+fold :  4, thresh : 0.340, test_acc : 0.9640
+fold :  5, thresh : 0.340, test_acc : 0.9614
+fold :  6, thresh : 0.340, test_acc : 0.9570
+fold :  7, thresh : 0.340, test_acc : 0.9633
+fold :  8, thresh : 0.340, test_acc : 0.9602
+fold :  9, thresh : 0.340, test_acc : 0.9672
+verification was finished, best_thresh : 0.3395, test_acc : 0.9622
+Single epoch cost time : 20.56 mins
+epoch : 11|45, iter :  300| 981,  loss : 8.4451, batch_ave_acc : 0.1410
+epoch : 11|45, iter :  600| 981,  loss : 8.5815, batch_ave_acc : 0.1375
+epoch : 11|45, iter :  900| 981,  loss : 8.6507, batch_ave_acc : 0.1359
+train_loss : 8.6609
+fold :  0, thresh : 0.340, test_acc : 0.9866
+fold :  1, thresh : 0.340, test_acc : 0.9833
+fold :  2, thresh : 0.340, test_acc : 0.9883
+fold :  3, thresh : 0.340, test_acc : 0.9883
+fold :  4, thresh : 0.340, test_acc : 0.9867
+fold :  5, thresh : 0.340, test_acc : 0.9817
+fold :  6, thresh : 0.340, test_acc : 0.9817
+fold :  7, thresh : 0.335, test_acc : 0.9800
+fold :  8, thresh : 0.340, test_acc : 0.9867
+fold :  9, thresh : 0.340, test_acc : 0.9833
+verification was finished, best_thresh : 0.3395, test_acc : 0.9847
+fold :  0, thresh : 0.370, test_acc : 0.9766
+fold :  1, thresh : 0.370, test_acc : 0.9678
+fold :  2, thresh : 0.370, test_acc : 0.9551
+fold :  3, thresh : 0.370, test_acc : 0.9678
+fold :  4, thresh : 0.370, test_acc : 0.9659
+fold :  5, thresh : 0.370, test_acc : 0.9684
+fold :  6, thresh : 0.370, test_acc : 0.9697
+fold :  7, thresh : 0.370, test_acc : 0.9678
+fold :  8, thresh : 0.370, test_acc : 0.9703
+fold :  9, thresh : 0.370, test_acc : 0.9709
+verification was finished, best_thresh : 0.3700, test_acc : 0.9680
+Single epoch cost time : 20.55 mins
+****************new SOTA was found****************
+epoch : 12|45, iter :  300| 981,  loss : 8.3675, batch_ave_acc : 0.1469
+epoch : 12|45, iter :  600| 981,  loss : 8.4870, batch_ave_acc : 0.1434
+epoch : 12|45, iter :  900| 981,  loss : 8.5515, batch_ave_acc : 0.1413
+train_loss : 8.5617
+fold :  0, thresh : 0.345, test_acc : 0.9900
+fold :  1, thresh : 0.345, test_acc : 0.9900
+fold :  2, thresh : 0.370, test_acc : 0.9800
+fold :  3, thresh : 0.345, test_acc : 0.9850
+fold :  4, thresh : 0.345, test_acc : 0.9817
+fold :  5, thresh : 0.345, test_acc : 0.9800
+fold :  6, thresh : 0.360, test_acc : 0.9800
+fold :  7, thresh : 0.365, test_acc : 0.9700
+fold :  8, thresh : 0.345, test_acc : 0.9883
+fold :  9, thresh : 0.345, test_acc : 0.9867
+verification was finished, best_thresh : 0.3510, test_acc : 0.9832
+fold :  0, thresh : 0.380, test_acc : 0.9659
+fold :  1, thresh : 0.380, test_acc : 0.9678
+fold :  2, thresh : 0.380, test_acc : 0.9507
+fold :  3, thresh : 0.380, test_acc : 0.9621
+fold :  4, thresh : 0.380, test_acc : 0.9633
+fold :  5, thresh : 0.380, test_acc : 0.9621
+fold :  6, thresh : 0.380, test_acc : 0.9646
+fold :  7, thresh : 0.380, test_acc : 0.9621
+fold :  8, thresh : 0.380, test_acc : 0.9671
+fold :  9, thresh : 0.380, test_acc : 0.9754
+verification was finished, best_thresh : 0.3800, test_acc : 0.9641
+Single epoch cost time : 20.61 mins
+epoch : 13|45, iter :  300| 981,  loss : 8.2551, batch_ave_acc : 0.1520
+epoch : 13|45, iter :  600| 981,  loss : 8.3999, batch_ave_acc : 0.1464
+epoch : 13|45, iter :  900| 981,  loss : 8.4727, batch_ave_acc : 0.1446
+train_loss : 8.4805
+fold :  0, thresh : 0.330, test_acc : 0.9850
+fold :  1, thresh : 0.335, test_acc : 0.9883
+fold :  2, thresh : 0.335, test_acc : 0.9767
+fold :  3, thresh : 0.330, test_acc : 0.9883
+fold :  4, thresh : 0.330, test_acc : 0.9850
+fold :  5, thresh : 0.330, test_acc : 0.9783
+fold :  6, thresh : 0.330, test_acc : 0.9800
+fold :  7, thresh : 0.330, test_acc : 0.9800
+fold :  8, thresh : 0.330, test_acc : 0.9900
+fold :  9, thresh : 0.330, test_acc : 0.9900
+verification was finished, best_thresh : 0.3310, test_acc : 0.9842
+fold :  0, thresh : 0.355, test_acc : 0.9741
+fold :  1, thresh : 0.355, test_acc : 0.9652
+fold :  2, thresh : 0.355, test_acc : 0.9558
+fold :  3, thresh : 0.355, test_acc : 0.9684
+fold :  4, thresh : 0.355, test_acc : 0.9690
+fold :  5, thresh : 0.355, test_acc : 0.9716
+fold :  6, thresh : 0.355, test_acc : 0.9703
+fold :  7, thresh : 0.355, test_acc : 0.9633
+fold :  8, thresh : 0.355, test_acc : 0.9690
+fold :  9, thresh : 0.355, test_acc : 0.9716
+verification was finished, best_thresh : 0.3550, test_acc : 0.9678
+Single epoch cost time : 20.49 mins
+epoch : 14|45, iter :  300| 981,  loss : 8.1589, batch_ave_acc : 0.1568
+epoch : 14|45, iter :  600| 981,  loss : 8.3192, batch_ave_acc : 0.1508
+epoch : 14|45, iter :  900| 981,  loss : 8.3906, batch_ave_acc : 0.1488
+train_loss : 8.4004
+fold :  0, thresh : 0.365, test_acc : 0.9783
+fold :  1, thresh : 0.365, test_acc : 0.9883
+fold :  2, thresh : 0.355, test_acc : 0.9767
+fold :  3, thresh : 0.350, test_acc : 0.9850
+fold :  4, thresh : 0.365, test_acc : 0.9900
+fold :  5, thresh : 0.340, test_acc : 0.9800
+fold :  6, thresh : 0.340, test_acc : 0.9850
+fold :  7, thresh : 0.365, test_acc : 0.9783
+fold :  8, thresh : 0.350, test_acc : 0.9817
+fold :  9, thresh : 0.355, test_acc : 0.9800
+verification was finished, best_thresh : 0.3550, test_acc : 0.9823
+fold :  0, thresh : 0.345, test_acc : 0.9722
+fold :  1, thresh : 0.345, test_acc : 0.9671
+fold :  2, thresh : 0.340, test_acc : 0.9551
+fold :  3, thresh : 0.340, test_acc : 0.9690
+fold :  4, thresh : 0.345, test_acc : 0.9659
+fold :  5, thresh : 0.340, test_acc : 0.9703
+fold :  6, thresh : 0.345, test_acc : 0.9665
+fold :  7, thresh : 0.340, test_acc : 0.9659
+fold :  8, thresh : 0.345, test_acc : 0.9678
+fold :  9, thresh : 0.340, test_acc : 0.9760
+verification was finished, best_thresh : 0.3425, test_acc : 0.9676
+Single epoch cost time : 21.41 mins
+epoch : 15|45, iter :  300| 981,  loss : 8.1229, batch_ave_acc : 0.1586
+epoch : 15|45, iter :  600| 981,  loss : 8.2528, batch_ave_acc : 0.1537
+epoch : 15|45, iter :  900| 981,  loss : 8.3249, batch_ave_acc : 0.1523
+train_loss : 8.3327
+fold :  0, thresh : 0.320, test_acc : 0.9833
+fold :  1, thresh : 0.355, test_acc : 0.9867
+fold :  2, thresh : 0.355, test_acc : 0.9833
+fold :  3, thresh : 0.355, test_acc : 0.9850
+fold :  4, thresh : 0.355, test_acc : 0.9867
+fold :  5, thresh : 0.355, test_acc : 0.9817
+fold :  6, thresh : 0.310, test_acc : 0.9800
+fold :  7, thresh : 0.320, test_acc : 0.9800
+fold :  8, thresh : 0.355, test_acc : 0.9850
+fold :  9, thresh : 0.355, test_acc : 0.9833
+verification was finished, best_thresh : 0.3435, test_acc : 0.9835
+fold :  0, thresh : 0.360, test_acc : 0.9678
+fold :  1, thresh : 0.395, test_acc : 0.9671
+fold :  2, thresh : 0.395, test_acc : 0.9520
+fold :  3, thresh : 0.395, test_acc : 0.9589
+fold :  4, thresh : 0.395, test_acc : 0.9678
+fold :  5, thresh : 0.380, test_acc : 0.9614
+fold :  6, thresh : 0.395, test_acc : 0.9608
+fold :  7, thresh : 0.395, test_acc : 0.9633
+fold :  8, thresh : 0.360, test_acc : 0.9665
+fold :  9, thresh : 0.395, test_acc : 0.9672
+verification was finished, best_thresh : 0.3865, test_acc : 0.9633
+Single epoch cost time : 20.75 mins
+epoch : 16|45, iter :  300| 981,  loss : 8.0363, batch_ave_acc : 0.1648
+epoch : 16|45, iter :  600| 981,  loss : 8.1823, batch_ave_acc : 0.1588
+epoch : 16|45, iter :  900| 981,  loss : 8.2576, batch_ave_acc : 0.1564
+train_loss : 8.2671
+fold :  0, thresh : 0.345, test_acc : 0.9883
+fold :  1, thresh : 0.345, test_acc : 0.9900
+fold :  2, thresh : 0.345, test_acc : 0.9883
+fold :  3, thresh : 0.345, test_acc : 0.9850
+fold :  4, thresh : 0.345, test_acc : 0.9883
+fold :  5, thresh : 0.345, test_acc : 0.9800
+fold :  6, thresh : 0.345, test_acc : 0.9850
+fold :  7, thresh : 0.345, test_acc : 0.9850
+fold :  8, thresh : 0.345, test_acc : 0.9850
+fold :  9, thresh : 0.345, test_acc : 0.9867
+verification was finished, best_thresh : 0.3450, test_acc : 0.9862
+fold :  0, thresh : 0.335, test_acc : 0.9703
+fold :  1, thresh : 0.335, test_acc : 0.9665
+fold :  2, thresh : 0.355, test_acc : 0.9501
+fold :  3, thresh : 0.335, test_acc : 0.9652
+fold :  4, thresh : 0.335, test_acc : 0.9684
+fold :  5, thresh : 0.335, test_acc : 0.9659
+fold :  6, thresh : 0.335, test_acc : 0.9678
+fold :  7, thresh : 0.335, test_acc : 0.9709
+fold :  8, thresh : 0.335, test_acc : 0.9678
+fold :  9, thresh : 0.335, test_acc : 0.9766
+verification was finished, best_thresh : 0.3370, test_acc : 0.9669
+Single epoch cost time : 20.51 mins
+****************new SOTA was found****************
+epoch : 17|45, iter :  300| 981,  loss : 6.5822, batch_ave_acc : 0.2730
+epoch : 17|45, iter :  600| 981,  loss : 6.3930, batch_ave_acc : 0.2896
+epoch : 17|45, iter :  900| 981,  loss : 6.2769, batch_ave_acc : 0.3005
+train_loss : 6.2520
+fold :  0, thresh : 0.310, test_acc : 0.9883
+fold :  1, thresh : 0.345, test_acc : 0.9900
+fold :  2, thresh : 0.340, test_acc : 0.9917
+fold :  3, thresh : 0.350, test_acc : 0.9933
+fold :  4, thresh : 0.335, test_acc : 0.9917
+fold :  5, thresh : 0.335, test_acc : 0.9883
+fold :  6, thresh : 0.335, test_acc : 0.9933
+fold :  7, thresh : 0.335, test_acc : 0.9833
+fold :  8, thresh : 0.335, test_acc : 0.9917
+fold :  9, thresh : 0.350, test_acc : 0.9917
+verification was finished, best_thresh : 0.3370, test_acc : 0.9903
+fold :  0, thresh : 0.310, test_acc : 0.9810
+fold :  1, thresh : 0.310, test_acc : 0.9798
+fold :  2, thresh : 0.310, test_acc : 0.9671
+fold :  3, thresh : 0.310, test_acc : 0.9747
+fold :  4, thresh : 0.310, test_acc : 0.9760
+fold :  5, thresh : 0.310, test_acc : 0.9829
+fold :  6, thresh : 0.310, test_acc : 0.9785
+fold :  7, thresh : 0.310, test_acc : 0.9823
+fold :  8, thresh : 0.310, test_acc : 0.9798
+fold :  9, thresh : 0.310, test_acc : 0.9880
+verification was finished, best_thresh : 0.3100, test_acc : 0.9790
+Single epoch cost time : 20.72 mins
+****************new SOTA was found****************
+epoch : 18|45, iter :  300| 981,  loss : 5.6124, batch_ave_acc : 0.3584
+epoch : 18|45, iter :  600| 981,  loss : 5.6146, batch_ave_acc : 0.3582
+epoch : 18|45, iter :  900| 981,  loss : 5.6230, batch_ave_acc : 0.3577
+train_loss : 5.6261
+fold :  0, thresh : 0.335, test_acc : 0.9917
+fold :  1, thresh : 0.335, test_acc : 0.9917
+fold :  2, thresh : 0.335, test_acc : 0.9917
+fold :  3, thresh : 0.335, test_acc : 0.9950
+fold :  4, thresh : 0.335, test_acc : 0.9950
+fold :  5, thresh : 0.335, test_acc : 0.9883
+fold :  6, thresh : 0.335, test_acc : 0.9917
+fold :  7, thresh : 0.335, test_acc : 0.9900
+fold :  8, thresh : 0.335, test_acc : 0.9917
+fold :  9, thresh : 0.335, test_acc : 0.9917
+verification was finished, best_thresh : 0.3350, test_acc : 0.9918
+fold :  0, thresh : 0.325, test_acc : 0.9823
+fold :  1, thresh : 0.325, test_acc : 0.9804
+fold :  2, thresh : 0.325, test_acc : 0.9684
+fold :  3, thresh : 0.325, test_acc : 0.9779
+fold :  4, thresh : 0.325, test_acc : 0.9791
+fold :  5, thresh : 0.325, test_acc : 0.9836
+fold :  6, thresh : 0.325, test_acc : 0.9791
+fold :  7, thresh : 0.325, test_acc : 0.9804
+fold :  8, thresh : 0.325, test_acc : 0.9810
+fold :  9, thresh : 0.325, test_acc : 0.9874
+verification was finished, best_thresh : 0.3250, test_acc : 0.9800
+Single epoch cost time : 21.41 mins
+****************new SOTA was found****************
+epoch : 19|45, iter :  300| 981,  loss : 5.3279, batch_ave_acc : 0.3848
+epoch : 19|45, iter :  600| 981,  loss : 5.3587, batch_ave_acc : 0.3804
+epoch : 19|45, iter :  900| 981,  loss : 5.3922, batch_ave_acc : 0.3773
+train_loss : 5.4044
+fold :  0, thresh : 0.315, test_acc : 0.9917
+fold :  1, thresh : 0.315, test_acc : 0.9933
+fold :  2, thresh : 0.315, test_acc : 0.9917
+fold :  3, thresh : 0.315, test_acc : 0.9950
+fold :  4, thresh : 0.315, test_acc : 0.9933
+fold :  5, thresh : 0.315, test_acc : 0.9900
+fold :  6, thresh : 0.315, test_acc : 0.9933
+fold :  7, thresh : 0.315, test_acc : 0.9933
+fold :  8, thresh : 0.315, test_acc : 0.9917
+fold :  9, thresh : 0.315, test_acc : 0.9900
+verification was finished, best_thresh : 0.3150, test_acc : 0.9923
+fold :  0, thresh : 0.335, test_acc : 0.9880
+fold :  1, thresh : 0.335, test_acc : 0.9842
+fold :  2, thresh : 0.330, test_acc : 0.9697
+fold :  3, thresh : 0.330, test_acc : 0.9785
+fold :  4, thresh : 0.330, test_acc : 0.9785
+fold :  5, thresh : 0.330, test_acc : 0.9829
+fold :  6, thresh : 0.330, test_acc : 0.9798
+fold :  7, thresh : 0.330, test_acc : 0.9804
+fold :  8, thresh : 0.330, test_acc : 0.9791
+fold :  9, thresh : 0.330, test_acc : 0.9880
+verification was finished, best_thresh : 0.3310, test_acc : 0.9809
+Single epoch cost time : 21.66 mins
+****************new SOTA was found****************
+epoch : 20|45, iter :  300| 981,  loss : 5.1893, batch_ave_acc : 0.3955
+epoch : 20|45, iter :  600| 981,  loss : 5.2351, batch_ave_acc : 0.3897
+epoch : 20|45, iter :  900| 981,  loss : 5.2837, batch_ave_acc : 0.3848
+train_loss : 5.2973
+fold :  0, thresh : 0.305, test_acc : 0.9933
+fold :  1, thresh : 0.305, test_acc : 0.9917
+fold :  2, thresh : 0.305, test_acc : 0.9933
+fold :  3, thresh : 0.305, test_acc : 0.9917
+fold :  4, thresh : 0.305, test_acc : 0.9950
+fold :  5, thresh : 0.300, test_acc : 0.9850
+fold :  6, thresh : 0.310, test_acc : 0.9900
+fold :  7, thresh : 0.305, test_acc : 0.9883
+fold :  8, thresh : 0.305, test_acc : 0.9883
+fold :  9, thresh : 0.305, test_acc : 0.9900
+verification was finished, best_thresh : 0.3050, test_acc : 0.9907
+fold :  0, thresh : 0.300, test_acc : 0.9817
+fold :  1, thresh : 0.320, test_acc : 0.9836
+fold :  2, thresh : 0.320, test_acc : 0.9671
+fold :  3, thresh : 0.320, test_acc : 0.9791
+fold :  4, thresh : 0.320, test_acc : 0.9785
+fold :  5, thresh : 0.320, test_acc : 0.9817
+fold :  6, thresh : 0.320, test_acc : 0.9804
+fold :  7, thresh : 0.320, test_acc : 0.9817
+fold :  8, thresh : 0.320, test_acc : 0.9804
+fold :  9, thresh : 0.320, test_acc : 0.9867
+verification was finished, best_thresh : 0.3180, test_acc : 0.9801
+Single epoch cost time : 21.33 mins
+epoch : 21|45, iter :  300| 981,  loss : 5.0866, batch_ave_acc : 0.4018
+epoch : 21|45, iter :  600| 981,  loss : 5.1714, batch_ave_acc : 0.3942
+epoch : 21|45, iter :  900| 981,  loss : 5.2265, batch_ave_acc : 0.3889
+train_loss : 5.2398
+fold :  0, thresh : 0.325, test_acc : 0.9933
+fold :  1, thresh : 0.325, test_acc : 0.9933
+fold :  2, thresh : 0.325, test_acc : 0.9900
+fold :  3, thresh : 0.325, test_acc : 0.9933
+fold :  4, thresh : 0.325, test_acc : 0.9933
+fold :  5, thresh : 0.325, test_acc : 0.9883
+fold :  6, thresh : 0.325, test_acc : 0.9917
+fold :  7, thresh : 0.325, test_acc : 0.9867
+fold :  8, thresh : 0.325, test_acc : 0.9917
+fold :  9, thresh : 0.325, test_acc : 0.9883
+verification was finished, best_thresh : 0.3250, test_acc : 0.9910
+fold :  0, thresh : 0.325, test_acc : 0.9836
+fold :  1, thresh : 0.325, test_acc : 0.9861
+fold :  2, thresh : 0.325, test_acc : 0.9697
+fold :  3, thresh : 0.325, test_acc : 0.9804
+fold :  4, thresh : 0.325, test_acc : 0.9753
+fold :  5, thresh : 0.325, test_acc : 0.9848
+fold :  6, thresh : 0.325, test_acc : 0.9810
+fold :  7, thresh : 0.325, test_acc : 0.9804
+fold :  8, thresh : 0.325, test_acc : 0.9791
+fold :  9, thresh : 0.325, test_acc : 0.9867
+verification was finished, best_thresh : 0.3250, test_acc : 0.9807
+Single epoch cost time : 20.58 mins
+epoch : 22|45, iter :  300| 981,  loss : 5.0353, batch_ave_acc : 0.4065
+epoch : 22|45, iter :  600| 981,  loss : 5.1292, batch_ave_acc : 0.3968
+epoch : 22|45, iter :  900| 981,  loss : 5.2002, batch_ave_acc : 0.3908
+train_loss : 5.2128
+fold :  0, thresh : 0.290, test_acc : 0.9917
+fold :  1, thresh : 0.290, test_acc : 0.9917
+fold :  2, thresh : 0.320, test_acc : 0.9900
+fold :  3, thresh : 0.290, test_acc : 0.9900
+fold :  4, thresh : 0.290, test_acc : 0.9917
+fold :  5, thresh : 0.290, test_acc : 0.9867
+fold :  6, thresh : 0.320, test_acc : 0.9917
+fold :  7, thresh : 0.320, test_acc : 0.9883
+fold :  8, thresh : 0.320, test_acc : 0.9900
+fold :  9, thresh : 0.320, test_acc : 0.9933
+verification was finished, best_thresh : 0.3050, test_acc : 0.9905
+fold :  0, thresh : 0.325, test_acc : 0.9861
+fold :  1, thresh : 0.325, test_acc : 0.9842
+fold :  2, thresh : 0.325, test_acc : 0.9690
+fold :  3, thresh : 0.325, test_acc : 0.9791
+fold :  4, thresh : 0.325, test_acc : 0.9772
+fold :  5, thresh : 0.325, test_acc : 0.9842
+fold :  6, thresh : 0.325, test_acc : 0.9791
+fold :  7, thresh : 0.325, test_acc : 0.9823
+fold :  8, thresh : 0.325, test_acc : 0.9804
+fold :  9, thresh : 0.325, test_acc : 0.9855
+verification was finished, best_thresh : 0.3250, test_acc : 0.9807
+Single epoch cost time : 20.46 mins
+epoch : 23|45, iter :  300| 981,  loss : 5.0395, batch_ave_acc : 0.4052
+epoch : 23|45, iter :  600| 981,  loss : 5.1258, batch_ave_acc : 0.3959
+epoch : 23|45, iter :  900| 981,  loss : 5.1881, batch_ave_acc : 0.3900
+train_loss : 5.2005
+fold :  0, thresh : 0.305, test_acc : 0.9950
+fold :  1, thresh : 0.305, test_acc : 0.9900
+fold :  2, thresh : 0.305, test_acc : 0.9917
+fold :  3, thresh : 0.305, test_acc : 0.9933
+fold :  4, thresh : 0.305, test_acc : 0.9900
+fold :  5, thresh : 0.305, test_acc : 0.9867
+fold :  6, thresh : 0.305, test_acc : 0.9950
+fold :  7, thresh : 0.305, test_acc : 0.9917
+fold :  8, thresh : 0.305, test_acc : 0.9933
+fold :  9, thresh : 0.305, test_acc : 0.9900
+verification was finished, best_thresh : 0.3050, test_acc : 0.9917
+fold :  0, thresh : 0.345, test_acc : 0.9829
+fold :  1, thresh : 0.345, test_acc : 0.9823
+fold :  2, thresh : 0.345, test_acc : 0.9690
+fold :  3, thresh : 0.325, test_acc : 0.9785
+fold :  4, thresh : 0.340, test_acc : 0.9779
+fold :  5, thresh : 0.325, test_acc : 0.9836
+fold :  6, thresh : 0.325, test_acc : 0.9791
+fold :  7, thresh : 0.335, test_acc : 0.9791
+fold :  8, thresh : 0.340, test_acc : 0.9791
+fold :  9, thresh : 0.345, test_acc : 0.9836
+verification was finished, best_thresh : 0.3370, test_acc : 0.9795
+Single epoch cost time : 20.91 mins
+epoch : 24|45, iter :  300| 981,  loss : 5.0196, batch_ave_acc : 0.4060
+epoch : 24|45, iter :  600| 981,  loss : 5.1174, batch_ave_acc : 0.3961
+epoch : 24|45, iter :  900| 981,  loss : 5.1837, batch_ave_acc : 0.3896
+train_loss : 5.2003
+fold :  0, thresh : 0.305, test_acc : 0.9933
+fold :  1, thresh : 0.305, test_acc : 0.9900
+fold :  2, thresh : 0.305, test_acc : 0.9917
+fold :  3, thresh : 0.305, test_acc : 0.9900
+fold :  4, thresh : 0.325, test_acc : 0.9900
+fold :  5, thresh : 0.305, test_acc : 0.9850
+fold :  6, thresh : 0.325, test_acc : 0.9933
+fold :  7, thresh : 0.300, test_acc : 0.9883
+fold :  8, thresh : 0.305, test_acc : 0.9900
+fold :  9, thresh : 0.325, test_acc : 0.9900
+verification was finished, best_thresh : 0.3105, test_acc : 0.9902
+fold :  0, thresh : 0.315, test_acc : 0.9817
+fold :  1, thresh : 0.315, test_acc : 0.9842
+fold :  2, thresh : 0.315, test_acc : 0.9690
+fold :  3, thresh : 0.315, test_acc : 0.9798
+fold :  4, thresh : 0.315, test_acc : 0.9772
+fold :  5, thresh : 0.315, test_acc : 0.9836
+fold :  6, thresh : 0.315, test_acc : 0.9810
+fold :  7, thresh : 0.315, test_acc : 0.9791
+fold :  8, thresh : 0.315, test_acc : 0.9798
+fold :  9, thresh : 0.315, test_acc : 0.9861
+verification was finished, best_thresh : 0.3150, test_acc : 0.9802
+Single epoch cost time : 20.40 mins
+epoch : 25|45, iter :  300| 981,  loss : 5.0029, batch_ave_acc : 0.4046
+epoch : 25|45, iter :  600| 981,  loss : 5.1107, batch_ave_acc : 0.3944
+epoch : 25|45, iter :  900| 981,  loss : 5.1884, batch_ave_acc : 0.3887
+train_loss : 5.2049
+fold :  0, thresh : 0.315, test_acc : 0.9933
+fold :  1, thresh : 0.315, test_acc : 0.9900
+fold :  2, thresh : 0.315, test_acc : 0.9883
+fold :  3, thresh : 0.315, test_acc : 0.9883
+fold :  4, thresh : 0.315, test_acc : 0.9917
+fold :  5, thresh : 0.315, test_acc : 0.9867
+fold :  6, thresh : 0.315, test_acc : 0.9917
+fold :  7, thresh : 0.315, test_acc : 0.9867
+fold :  8, thresh : 0.315, test_acc : 0.9917
+fold :  9, thresh : 0.315, test_acc : 0.9933
+verification was finished, best_thresh : 0.3150, test_acc : 0.9902
+fold :  0, thresh : 0.330, test_acc : 0.9829
+fold :  1, thresh : 0.330, test_acc : 0.9848
+fold :  2, thresh : 0.335, test_acc : 0.9709
+fold :  3, thresh : 0.320, test_acc : 0.9747
+fold :  4, thresh : 0.335, test_acc : 0.9772
+fold :  5, thresh : 0.335, test_acc : 0.9823
+fold :  6, thresh : 0.325, test_acc : 0.9791
+fold :  7, thresh : 0.330, test_acc : 0.9804
+fold :  8, thresh : 0.335, test_acc : 0.9798
+fold :  9, thresh : 0.335, test_acc : 0.9855
+verification was finished, best_thresh : 0.3310, test_acc : 0.9798
+Single epoch cost time : 20.60 mins
+epoch : 26|45, iter :  300| 981,  loss : 4.6750, batch_ave_acc : 0.4447
+epoch : 26|45, iter :  600| 981,  loss : 4.6476, batch_ave_acc : 0.4477
+epoch : 26|45, iter :  900| 981,  loss : 4.6293, batch_ave_acc : 0.4500
+train_loss : 4.6281
+fold :  0, thresh : 0.320, test_acc : 0.9933
+fold :  1, thresh : 0.320, test_acc : 0.9900
+fold :  2, thresh : 0.320, test_acc : 0.9933
+fold :  3, thresh : 0.320, test_acc : 0.9933
+fold :  4, thresh : 0.320, test_acc : 0.9967
+fold :  5, thresh : 0.320, test_acc : 0.9900
+fold :  6, thresh : 0.320, test_acc : 0.9917
+fold :  7, thresh : 0.320, test_acc : 0.9883
+fold :  8, thresh : 0.320, test_acc : 0.9917
+fold :  9, thresh : 0.320, test_acc : 0.9950
+verification was finished, best_thresh : 0.3200, test_acc : 0.9923
+fold :  0, thresh : 0.325, test_acc : 0.9886
+fold :  1, thresh : 0.325, test_acc : 0.9861
+fold :  2, thresh : 0.325, test_acc : 0.9709
+fold :  3, thresh : 0.320, test_acc : 0.9791
+fold :  4, thresh : 0.325, test_acc : 0.9785
+fold :  5, thresh : 0.325, test_acc : 0.9842
+fold :  6, thresh : 0.325, test_acc : 0.9804
+fold :  7, thresh : 0.325, test_acc : 0.9836
+fold :  8, thresh : 0.325, test_acc : 0.9810
+fold :  9, thresh : 0.325, test_acc : 0.9867
+verification was finished, best_thresh : 0.3245, test_acc : 0.9819
+Single epoch cost time : 20.48 mins
+****************new SOTA was found****************
+epoch : 27|45, iter :  300| 981,  loss : 4.5074, batch_ave_acc : 0.4634
+epoch : 27|45, iter :  600| 981,  loss : 4.5193, batch_ave_acc : 0.4617
+epoch : 27|45, iter :  900| 981,  loss : 4.5262, batch_ave_acc : 0.4608
+train_loss : 4.5290
+fold :  0, thresh : 0.325, test_acc : 0.9933
+fold :  1, thresh : 0.320, test_acc : 0.9900
+fold :  2, thresh : 0.325, test_acc : 0.9883
+fold :  3, thresh : 0.310, test_acc : 0.9900
+fold :  4, thresh : 0.325, test_acc : 0.9967
+fold :  5, thresh : 0.320, test_acc : 0.9883
+fold :  6, thresh : 0.325, test_acc : 0.9933
+fold :  7, thresh : 0.325, test_acc : 0.9883
+fold :  8, thresh : 0.325, test_acc : 0.9917
+fold :  9, thresh : 0.325, test_acc : 0.9933
+verification was finished, best_thresh : 0.3225, test_acc : 0.9913
+fold :  0, thresh : 0.325, test_acc : 0.9886
+fold :  1, thresh : 0.325, test_acc : 0.9867
+fold :  2, thresh : 0.325, test_acc : 0.9728
+fold :  3, thresh : 0.325, test_acc : 0.9798
+fold :  4, thresh : 0.325, test_acc : 0.9779
+fold :  5, thresh : 0.325, test_acc : 0.9848
+fold :  6, thresh : 0.325, test_acc : 0.9804
+fold :  7, thresh : 0.325, test_acc : 0.9842
+fold :  8, thresh : 0.325, test_acc : 0.9817
+fold :  9, thresh : 0.325, test_acc : 0.9874
+verification was finished, best_thresh : 0.3250, test_acc : 0.9824
+Single epoch cost time : 20.52 mins
+epoch : 28|45, iter :  300| 981,  loss : 4.4561, batch_ave_acc : 0.4687
+epoch : 28|45, iter :  600| 981,  loss : 4.4766, batch_ave_acc : 0.4661
+epoch : 28|45, iter :  900| 981,  loss : 4.4917, batch_ave_acc : 0.4640
+train_loss : 4.4938
+fold :  0, thresh : 0.305, test_acc : 0.9933
+fold :  1, thresh : 0.315, test_acc : 0.9900
+fold :  2, thresh : 0.315, test_acc : 0.9867
+fold :  3, thresh : 0.305, test_acc : 0.9917
+fold :  4, thresh : 0.305, test_acc : 0.9933
+fold :  5, thresh : 0.305, test_acc : 0.9867
+fold :  6, thresh : 0.315, test_acc : 0.9933
+fold :  7, thresh : 0.315, test_acc : 0.9900
+fold :  8, thresh : 0.315, test_acc : 0.9917
+fold :  9, thresh : 0.315, test_acc : 0.9933
+verification was finished, best_thresh : 0.3110, test_acc : 0.9910
+fold :  0, thresh : 0.320, test_acc : 0.9886
+fold :  1, thresh : 0.320, test_acc : 0.9867
+fold :  2, thresh : 0.320, test_acc : 0.9728
+fold :  3, thresh : 0.320, test_acc : 0.9798
+fold :  4, thresh : 0.320, test_acc : 0.9779
+fold :  5, thresh : 0.320, test_acc : 0.9842
+fold :  6, thresh : 0.320, test_acc : 0.9804
+fold :  7, thresh : 0.320, test_acc : 0.9842
+fold :  8, thresh : 0.320, test_acc : 0.9823
+fold :  9, thresh : 0.320, test_acc : 0.9861
+verification was finished, best_thresh : 0.3200, test_acc : 0.9823
+Single epoch cost time : 21.11 mins
+epoch : 29|45, iter :  300| 981,  loss : 4.4253, batch_ave_acc : 0.4713
+epoch : 29|45, iter :  600| 981,  loss : 4.4483, batch_ave_acc : 0.4691
+epoch : 29|45, iter :  900| 981,  loss : 4.4620, batch_ave_acc : 0.4666
+train_loss : 4.4662
+fold :  0, thresh : 0.310, test_acc : 0.9917
+fold :  1, thresh : 0.305, test_acc : 0.9900
+fold :  2, thresh : 0.310, test_acc : 0.9917
+fold :  3, thresh : 0.315, test_acc : 0.9917
+fold :  4, thresh : 0.305, test_acc : 0.9933
+fold :  5, thresh : 0.310, test_acc : 0.9900
+fold :  6, thresh : 0.310, test_acc : 0.9917
+fold :  7, thresh : 0.310, test_acc : 0.9883
+fold :  8, thresh : 0.310, test_acc : 0.9917
+fold :  9, thresh : 0.305, test_acc : 0.9917
+verification was finished, best_thresh : 0.3090, test_acc : 0.9912
+fold :  0, thresh : 0.315, test_acc : 0.9880
+fold :  1, thresh : 0.320, test_acc : 0.9867
+fold :  2, thresh : 0.320, test_acc : 0.9716
+fold :  3, thresh : 0.315, test_acc : 0.9785
+fold :  4, thresh : 0.315, test_acc : 0.9785
+fold :  5, thresh : 0.315, test_acc : 0.9829
+fold :  6, thresh : 0.325, test_acc : 0.9817
+fold :  7, thresh : 0.315, test_acc : 0.9836
+fold :  8, thresh : 0.315, test_acc : 0.9817
+fold :  9, thresh : 0.320, test_acc : 0.9855
+verification was finished, best_thresh : 0.3175, test_acc : 0.9819
+Single epoch cost time : 20.47 mins
+epoch : 30|45, iter :  300| 981,  loss : 4.4264, batch_ave_acc : 0.4687
+epoch : 30|45, iter :  600| 981,  loss : 4.4303, batch_ave_acc : 0.4685
+epoch : 30|45, iter :  900| 981,  loss : 4.4429, batch_ave_acc : 0.4676
+train_loss : 4.4447
+fold :  0, thresh : 0.315, test_acc : 0.9950
+fold :  1, thresh : 0.315, test_acc : 0.9917
+fold :  2, thresh : 0.315, test_acc : 0.9917
+fold :  3, thresh : 0.315, test_acc : 0.9950
+fold :  4, thresh : 0.315, test_acc : 0.9967
+fold :  5, thresh : 0.315, test_acc : 0.9900
+fold :  6, thresh : 0.315, test_acc : 0.9933
+fold :  7, thresh : 0.315, test_acc : 0.9917
+fold :  8, thresh : 0.315, test_acc : 0.9917
+fold :  9, thresh : 0.315, test_acc : 0.9933
+verification was finished, best_thresh : 0.3150, test_acc : 0.9930
+fold :  0, thresh : 0.325, test_acc : 0.9874
+fold :  1, thresh : 0.325, test_acc : 0.9867
+fold :  2, thresh : 0.335, test_acc : 0.9722
+fold :  3, thresh : 0.325, test_acc : 0.9798
+fold :  4, thresh : 0.325, test_acc : 0.9798
+fold :  5, thresh : 0.325, test_acc : 0.9842
+fold :  6, thresh : 0.325, test_acc : 0.9817
+fold :  7, thresh : 0.325, test_acc : 0.9842
+fold :  8, thresh : 0.325, test_acc : 0.9817
+fold :  9, thresh : 0.325, test_acc : 0.9874
+verification was finished, best_thresh : 0.3260, test_acc : 0.9825
+Single epoch cost time : 20.64 mins
+****************new SOTA was found****************
+epoch : 31|45, iter :  300| 981,  loss : 4.3895, batch_ave_acc : 0.4734
+epoch : 31|45, iter :  600| 981,  loss : 4.4041, batch_ave_acc : 0.4717
+epoch : 31|45, iter :  900| 981,  loss : 4.4250, batch_ave_acc : 0.4696
+train_loss : 4.4279
+fold :  0, thresh : 0.310, test_acc : 0.9933
+fold :  1, thresh : 0.310, test_acc : 0.9917
+fold :  2, thresh : 0.310, test_acc : 0.9900
+fold :  3, thresh : 0.310, test_acc : 0.9950
+fold :  4, thresh : 0.310, test_acc : 0.9967
+fold :  5, thresh : 0.310, test_acc : 0.9900
+fold :  6, thresh : 0.310, test_acc : 0.9933
+fold :  7, thresh : 0.310, test_acc : 0.9900
+fold :  8, thresh : 0.310, test_acc : 0.9917
+fold :  9, thresh : 0.310, test_acc : 0.9933
+verification was finished, best_thresh : 0.3100, test_acc : 0.9925
+fold :  0, thresh : 0.320, test_acc : 0.9867
+fold :  1, thresh : 0.320, test_acc : 0.9874
+fold :  2, thresh : 0.320, test_acc : 0.9747
+fold :  3, thresh : 0.320, test_acc : 0.9785
+fold :  4, thresh : 0.320, test_acc : 0.9791
+fold :  5, thresh : 0.320, test_acc : 0.9842
+fold :  6, thresh : 0.320, test_acc : 0.9817
+fold :  7, thresh : 0.320, test_acc : 0.9829
+fold :  8, thresh : 0.320, test_acc : 0.9810
+fold :  9, thresh : 0.320, test_acc : 0.9874
+verification was finished, best_thresh : 0.3200, test_acc : 0.9824
+Single epoch cost time : 20.54 mins
+epoch : 32|45, iter :  300| 981,  loss : 4.3788, batch_ave_acc : 0.4738
+epoch : 32|45, iter :  600| 981,  loss : 4.3894, batch_ave_acc : 0.4722
+epoch : 32|45, iter :  900| 981,  loss : 4.4089, batch_ave_acc : 0.4700
+train_loss : 4.4153
+fold :  0, thresh : 0.325, test_acc : 0.9933
+fold :  1, thresh : 0.325, test_acc : 0.9917
+fold :  2, thresh : 0.325, test_acc : 0.9900
+fold :  3, thresh : 0.325, test_acc : 0.9933
+fold :  4, thresh : 0.325, test_acc : 0.9967
+fold :  5, thresh : 0.325, test_acc : 0.9900
+fold :  6, thresh : 0.325, test_acc : 0.9933
+fold :  7, thresh : 0.325, test_acc : 0.9917
+fold :  8, thresh : 0.325, test_acc : 0.9933
+fold :  9, thresh : 0.325, test_acc : 0.9950
+verification was finished, best_thresh : 0.3250, test_acc : 0.9928
+fold :  0, thresh : 0.320, test_acc : 0.9880
+fold :  1, thresh : 0.320, test_acc : 0.9880
+fold :  2, thresh : 0.320, test_acc : 0.9735
+fold :  3, thresh : 0.320, test_acc : 0.9791
+fold :  4, thresh : 0.320, test_acc : 0.9785
+fold :  5, thresh : 0.320, test_acc : 0.9842
+fold :  6, thresh : 0.320, test_acc : 0.9829
+fold :  7, thresh : 0.320, test_acc : 0.9842
+fold :  8, thresh : 0.315, test_acc : 0.9804
+fold :  9, thresh : 0.320, test_acc : 0.9874
+verification was finished, best_thresh : 0.3195, test_acc : 0.9826
+Single epoch cost time : 20.44 mins
+epoch : 33|45, iter :  300| 981,  loss : 4.3753, batch_ave_acc : 0.4729
+epoch : 33|45, iter :  600| 981,  loss : 4.3758, batch_ave_acc : 0.4725
+epoch : 33|45, iter :  900| 981,  loss : 4.3970, batch_ave_acc : 0.4708
+train_loss : 4.4029
+fold :  0, thresh : 0.310, test_acc : 0.9933
+fold :  1, thresh : 0.300, test_acc : 0.9900
+fold :  2, thresh : 0.320, test_acc : 0.9883
+fold :  3, thresh : 0.295, test_acc : 0.9883
+fold :  4, thresh : 0.310, test_acc : 0.9950
+fold :  5, thresh : 0.310, test_acc : 0.9883
+fold :  6, thresh : 0.310, test_acc : 0.9917
+fold :  7, thresh : 0.310, test_acc : 0.9900
+fold :  8, thresh : 0.310, test_acc : 0.9933
+fold :  9, thresh : 0.310, test_acc : 0.9933
+verification was finished, best_thresh : 0.3085, test_acc : 0.9912
+fold :  0, thresh : 0.305, test_acc : 0.9874
+fold :  1, thresh : 0.340, test_acc : 0.9861
+fold :  2, thresh : 0.340, test_acc : 0.9728
+fold :  3, thresh : 0.305, test_acc : 0.9791
+fold :  4, thresh : 0.305, test_acc : 0.9779
+fold :  5, thresh : 0.340, test_acc : 0.9829
+fold :  6, thresh : 0.305, test_acc : 0.9804
+fold :  7, thresh : 0.305, test_acc : 0.9823
+fold :  8, thresh : 0.305, test_acc : 0.9804
+fold :  9, thresh : 0.305, test_acc : 0.9861
+verification was finished, best_thresh : 0.3155, test_acc : 0.9815
+Single epoch cost time : 20.69 mins
+epoch : 34|45, iter :  300| 981,  loss : 4.3564, batch_ave_acc : 0.4752
+epoch : 34|45, iter :  600| 981,  loss : 4.3670, batch_ave_acc : 0.4737
+epoch : 34|45, iter :  900| 981,  loss : 4.3875, batch_ave_acc : 0.4717
+train_loss : 4.3899
+fold :  0, thresh : 0.315, test_acc : 0.9917
+fold :  1, thresh : 0.320, test_acc : 0.9900
+fold :  2, thresh : 0.320, test_acc : 0.9917
+fold :  3, thresh : 0.315, test_acc : 0.9917
+fold :  4, thresh : 0.320, test_acc : 0.9967
+fold :  5, thresh : 0.320, test_acc : 0.9900
+fold :  6, thresh : 0.315, test_acc : 0.9917
+fold :  7, thresh : 0.320, test_acc : 0.9883
+fold :  8, thresh : 0.315, test_acc : 0.9933
+fold :  9, thresh : 0.320, test_acc : 0.9900
+verification was finished, best_thresh : 0.3180, test_acc : 0.9915
+fold :  0, thresh : 0.320, test_acc : 0.9886
+fold :  1, thresh : 0.320, test_acc : 0.9867
+fold :  2, thresh : 0.320, test_acc : 0.9735
+fold :  3, thresh : 0.320, test_acc : 0.9810
+fold :  4, thresh : 0.320, test_acc : 0.9785
+fold :  5, thresh : 0.325, test_acc : 0.9836
+fold :  6, thresh : 0.320, test_acc : 0.9823
+fold :  7, thresh : 0.325, test_acc : 0.9829
+fold :  8, thresh : 0.325, test_acc : 0.9810
+fold :  9, thresh : 0.320, test_acc : 0.9861
+verification was finished, best_thresh : 0.3215, test_acc : 0.9824
+Single epoch cost time : 20.38 mins
+epoch : 35|45, iter :  300| 981,  loss : 4.3177, batch_ave_acc : 0.4778
+epoch : 35|45, iter :  600| 981,  loss : 4.3549, batch_ave_acc : 0.4747
+epoch : 35|45, iter :  900| 981,  loss : 4.3722, batch_ave_acc : 0.4728
+train_loss : 4.3776
+fold :  0, thresh : 0.320, test_acc : 0.9933
+fold :  1, thresh : 0.310, test_acc : 0.9867
+fold :  2, thresh : 0.320, test_acc : 0.9900
+fold :  3, thresh : 0.300, test_acc : 0.9917
+fold :  4, thresh : 0.300, test_acc : 0.9950
+fold :  5, thresh : 0.300, test_acc : 0.9883
+fold :  6, thresh : 0.300, test_acc : 0.9917
+fold :  7, thresh : 0.315, test_acc : 0.9900
+fold :  8, thresh : 0.320, test_acc : 0.9933
+fold :  9, thresh : 0.320, test_acc : 0.9933
+verification was finished, best_thresh : 0.3105, test_acc : 0.9913
+fold :  0, thresh : 0.330, test_acc : 0.9880
+fold :  1, thresh : 0.340, test_acc : 0.9861
+fold :  2, thresh : 0.330, test_acc : 0.9722
+fold :  3, thresh : 0.315, test_acc : 0.9779
+fold :  4, thresh : 0.315, test_acc : 0.9766
+fold :  5, thresh : 0.340, test_acc : 0.9829
+fold :  6, thresh : 0.340, test_acc : 0.9810
+fold :  7, thresh : 0.340, test_acc : 0.9810
+fold :  8, thresh : 0.330, test_acc : 0.9804
+fold :  9, thresh : 0.330, test_acc : 0.9867
+verification was finished, best_thresh : 0.3310, test_acc : 0.9813
+Single epoch cost time : 20.64 mins
+epoch : 36|45, iter :  300| 981,  loss : 4.2828, batch_ave_acc : 0.4822
+epoch : 36|45, iter :  600| 981,  loss : 4.2892, batch_ave_acc : 0.4813
+epoch : 36|45, iter :  900| 981,  loss : 4.2900, batch_ave_acc : 0.4821
+train_loss : 4.2880
+fold :  0, thresh : 0.310, test_acc : 0.9917
+fold :  1, thresh : 0.330, test_acc : 0.9883
+fold :  2, thresh : 0.310, test_acc : 0.9900
+fold :  3, thresh : 0.310, test_acc : 0.9917
+fold :  4, thresh : 0.310, test_acc : 0.9967
+fold :  5, thresh : 0.305, test_acc : 0.9867
+fold :  6, thresh : 0.310, test_acc : 0.9917
+fold :  7, thresh : 0.310, test_acc : 0.9900
+fold :  8, thresh : 0.320, test_acc : 0.9900
+fold :  9, thresh : 0.310, test_acc : 0.9933
+verification was finished, best_thresh : 0.3125, test_acc : 0.9910
+fold :  0, thresh : 0.320, test_acc : 0.9880
+fold :  1, thresh : 0.320, test_acc : 0.9880
+fold :  2, thresh : 0.320, test_acc : 0.9747
+fold :  3, thresh : 0.320, test_acc : 0.9798
+fold :  4, thresh : 0.320, test_acc : 0.9766
+fold :  5, thresh : 0.320, test_acc : 0.9842
+fold :  6, thresh : 0.320, test_acc : 0.9836
+fold :  7, thresh : 0.320, test_acc : 0.9842
+fold :  8, thresh : 0.320, test_acc : 0.9817
+fold :  9, thresh : 0.320, test_acc : 0.9867
+verification was finished, best_thresh : 0.3200, test_acc : 0.9827
+Single epoch cost time : 20.52 mins
+epoch : 37|45, iter :  300| 981,  loss : 4.2872, batch_ave_acc : 0.4838
+epoch : 37|45, iter :  600| 981,  loss : 4.2802, batch_ave_acc : 0.4839
+epoch : 37|45, iter :  900| 981,  loss : 4.2754, batch_ave_acc : 0.4840
+train_loss : 4.2782
+fold :  0, thresh : 0.305, test_acc : 0.9917
+fold :  1, thresh : 0.305, test_acc : 0.9900
+fold :  2, thresh : 0.310, test_acc : 0.9900
+fold :  3, thresh : 0.305, test_acc : 0.9917
+fold :  4, thresh : 0.305, test_acc : 0.9967
+fold :  5, thresh : 0.305, test_acc : 0.9917
+fold :  6, thresh : 0.305, test_acc : 0.9917
+fold :  7, thresh : 0.305, test_acc : 0.9900
+fold :  8, thresh : 0.305, test_acc : 0.9917
+fold :  9, thresh : 0.330, test_acc : 0.9900
+verification was finished, best_thresh : 0.3080, test_acc : 0.9915
+fold :  0, thresh : 0.335, test_acc : 0.9880
+fold :  1, thresh : 0.335, test_acc : 0.9867
+fold :  2, thresh : 0.335, test_acc : 0.9716
+fold :  3, thresh : 0.310, test_acc : 0.9779
+fold :  4, thresh : 0.310, test_acc : 0.9766
+fold :  5, thresh : 0.320, test_acc : 0.9829
+fold :  6, thresh : 0.320, test_acc : 0.9829
+fold :  7, thresh : 0.335, test_acc : 0.9823
+fold :  8, thresh : 0.335, test_acc : 0.9810
+fold :  9, thresh : 0.335, test_acc : 0.9874
+verification was finished, best_thresh : 0.3270, test_acc : 0.9817
+Single epoch cost time : 20.56 mins
+epoch : 38|45, iter :  300| 981,  loss : 4.2908, batch_ave_acc : 0.4834
+epoch : 38|45, iter :  600| 981,  loss : 4.2850, batch_ave_acc : 0.4836
+epoch : 38|45, iter :  900| 981,  loss : 4.2758, batch_ave_acc : 0.4840
+train_loss : 4.2751
+fold :  0, thresh : 0.315, test_acc : 0.9917
+fold :  1, thresh : 0.320, test_acc : 0.9900
+fold :  2, thresh : 0.315, test_acc : 0.9900
+fold :  3, thresh : 0.320, test_acc : 0.9933
+fold :  4, thresh : 0.320, test_acc : 0.9967
+fold :  5, thresh : 0.320, test_acc : 0.9900
+fold :  6, thresh : 0.320, test_acc : 0.9933
+fold :  7, thresh : 0.320, test_acc : 0.9883
+fold :  8, thresh : 0.320, test_acc : 0.9900
+fold :  9, thresh : 0.325, test_acc : 0.9917
+verification was finished, best_thresh : 0.3195, test_acc : 0.9915
+fold :  0, thresh : 0.310, test_acc : 0.9886
+fold :  1, thresh : 0.310, test_acc : 0.9880
+fold :  2, thresh : 0.310, test_acc : 0.9735
+fold :  3, thresh : 0.310, test_acc : 0.9791
+fold :  4, thresh : 0.310, test_acc : 0.9772
+fold :  5, thresh : 0.310, test_acc : 0.9836
+fold :  6, thresh : 0.310, test_acc : 0.9836
+fold :  7, thresh : 0.310, test_acc : 0.9829
+fold :  8, thresh : 0.310, test_acc : 0.9817
+fold :  9, thresh : 0.310, test_acc : 0.9874
+verification was finished, best_thresh : 0.3100, test_acc : 0.9826
+Single epoch cost time : 20.50 mins
+epoch : 39|45, iter :  300| 981,  loss : 4.2606, batch_ave_acc : 0.4845
+epoch : 39|45, iter :  600| 981,  loss : 4.2756, batch_ave_acc : 0.4838
+epoch : 39|45, iter :  900| 981,  loss : 4.2706, batch_ave_acc : 0.4841
+train_loss : 4.2719
+fold :  0, thresh : 0.315, test_acc : 0.9917
+fold :  1, thresh : 0.315, test_acc : 0.9917
+fold :  2, thresh : 0.315, test_acc : 0.9917
+fold :  3, thresh : 0.315, test_acc : 0.9933
+fold :  4, thresh : 0.290, test_acc : 0.9933
+fold :  5, thresh : 0.315, test_acc : 0.9900
+fold :  6, thresh : 0.315, test_acc : 0.9933
+fold :  7, thresh : 0.315, test_acc : 0.9900
+fold :  8, thresh : 0.315, test_acc : 0.9933
+fold :  9, thresh : 0.315, test_acc : 0.9933
+verification was finished, best_thresh : 0.3125, test_acc : 0.9922
+fold :  0, thresh : 0.315, test_acc : 0.9893
+fold :  1, thresh : 0.315, test_acc : 0.9880
+fold :  2, thresh : 0.315, test_acc : 0.9753
+fold :  3, thresh : 0.315, test_acc : 0.9791
+fold :  4, thresh : 0.315, test_acc : 0.9772
+fold :  5, thresh : 0.315, test_acc : 0.9836
+fold :  6, thresh : 0.315, test_acc : 0.9836
+fold :  7, thresh : 0.315, test_acc : 0.9836
+fold :  8, thresh : 0.315, test_acc : 0.9810
+fold :  9, thresh : 0.315, test_acc : 0.9867
+verification was finished, best_thresh : 0.3150, test_acc : 0.9827
+Single epoch cost time : 20.52 mins
+epoch : 40|45, iter :  300| 981,  loss : 4.2518, batch_ave_acc : 0.4845
+epoch : 40|45, iter :  600| 981,  loss : 4.2730, batch_ave_acc : 0.4835
+epoch : 40|45, iter :  900| 981,  loss : 4.2687, batch_ave_acc : 0.4841
+train_loss : 4.2701
+fold :  0, thresh : 0.315, test_acc : 0.9917
+fold :  1, thresh : 0.320, test_acc : 0.9900
+fold :  2, thresh : 0.320, test_acc : 0.9900
+fold :  3, thresh : 0.290, test_acc : 0.9917
+fold :  4, thresh : 0.290, test_acc : 0.9917
+fold :  5, thresh : 0.290, test_acc : 0.9883
+fold :  6, thresh : 0.290, test_acc : 0.9917
+fold :  7, thresh : 0.320, test_acc : 0.9883
+fold :  8, thresh : 0.320, test_acc : 0.9900
+fold :  9, thresh : 0.290, test_acc : 0.9917
+verification was finished, best_thresh : 0.3045, test_acc : 0.9905
+fold :  0, thresh : 0.310, test_acc : 0.9874
+fold :  1, thresh : 0.310, test_acc : 0.9880
+fold :  2, thresh : 0.330, test_acc : 0.9735
+fold :  3, thresh : 0.310, test_acc : 0.9779
+fold :  4, thresh : 0.310, test_acc : 0.9779
+fold :  5, thresh : 0.310, test_acc : 0.9829
+fold :  6, thresh : 0.330, test_acc : 0.9817
+fold :  7, thresh : 0.310, test_acc : 0.9823
+fold :  8, thresh : 0.310, test_acc : 0.9817
+fold :  9, thresh : 0.310, test_acc : 0.9874
+verification was finished, best_thresh : 0.3140, test_acc : 0.9820
+Single epoch cost time : 20.45 mins
+epoch : 41|45, iter :  300| 981,  loss : 4.2538, batch_ave_acc : 0.4853
+epoch : 41|45, iter :  600| 981,  loss : 4.2659, batch_ave_acc : 0.4848
+epoch : 41|45, iter :  900| 981,  loss : 4.2629, batch_ave_acc : 0.4849
+train_loss : 4.2659
+fold :  0, thresh : 0.325, test_acc : 0.9933
+fold :  1, thresh : 0.325, test_acc : 0.9900
+fold :  2, thresh : 0.325, test_acc : 0.9917
+fold :  3, thresh : 0.325, test_acc : 0.9933
+fold :  4, thresh : 0.325, test_acc : 0.9967
+fold :  5, thresh : 0.325, test_acc : 0.9900
+fold :  6, thresh : 0.325, test_acc : 0.9933
+fold :  7, thresh : 0.325, test_acc : 0.9883
+fold :  8, thresh : 0.325, test_acc : 0.9917
+fold :  9, thresh : 0.325, test_acc : 0.9933
+verification was finished, best_thresh : 0.3250, test_acc : 0.9922
+fold :  0, thresh : 0.330, test_acc : 0.9880
+fold :  1, thresh : 0.330, test_acc : 0.9874
+fold :  2, thresh : 0.330, test_acc : 0.9735
+fold :  3, thresh : 0.315, test_acc : 0.9779
+fold :  4, thresh : 0.330, test_acc : 0.9779
+fold :  5, thresh : 0.330, test_acc : 0.9829
+fold :  6, thresh : 0.330, test_acc : 0.9817
+fold :  7, thresh : 0.310, test_acc : 0.9823
+fold :  8, thresh : 0.315, test_acc : 0.9798
+fold :  9, thresh : 0.330, test_acc : 0.9867
+verification was finished, best_thresh : 0.3250, test_acc : 0.9818
+Single epoch cost time : 20.50 mins
+epoch : 42|45, iter :  300| 981,  loss : 4.2695, batch_ave_acc : 0.4853
+epoch : 42|45, iter :  600| 981,  loss : 4.2544, batch_ave_acc : 0.4850
+epoch : 42|45, iter :  900| 981,  loss : 4.2637, batch_ave_acc : 0.4846
+train_loss : 4.2658
+fold :  0, thresh : 0.325, test_acc : 0.9933
+fold :  1, thresh : 0.325, test_acc : 0.9900
+fold :  2, thresh : 0.325, test_acc : 0.9917
+fold :  3, thresh : 0.325, test_acc : 0.9933
+fold :  4, thresh : 0.325, test_acc : 0.9967
+fold :  5, thresh : 0.325, test_acc : 0.9900
+fold :  6, thresh : 0.325, test_acc : 0.9933
+fold :  7, thresh : 0.325, test_acc : 0.9883
+fold :  8, thresh : 0.325, test_acc : 0.9917
+fold :  9, thresh : 0.325, test_acc : 0.9950
+verification was finished, best_thresh : 0.3250, test_acc : 0.9923
+fold :  0, thresh : 0.315, test_acc : 0.9880
+fold :  1, thresh : 0.310, test_acc : 0.9874
+fold :  2, thresh : 0.330, test_acc : 0.9728
+fold :  3, thresh : 0.315, test_acc : 0.9791
+fold :  4, thresh : 0.315, test_acc : 0.9779
+fold :  5, thresh : 0.315, test_acc : 0.9823
+fold :  6, thresh : 0.325, test_acc : 0.9823
+fold :  7, thresh : 0.310, test_acc : 0.9823
+fold :  8, thresh : 0.315, test_acc : 0.9804
+fold :  9, thresh : 0.315, test_acc : 0.9867
+verification was finished, best_thresh : 0.3165, test_acc : 0.9819
+Single epoch cost time : 20.61 mins
+epoch : 43|45, iter :  300| 981,  loss : 4.2791, batch_ave_acc : 0.4852
+epoch : 43|45, iter :  600| 981,  loss : 4.2664, batch_ave_acc : 0.4854
+epoch : 43|45, iter :  900| 981,  loss : 4.2633, batch_ave_acc : 0.4851
+train_loss : 4.2626
+fold :  0, thresh : 0.300, test_acc : 0.9917
+fold :  1, thresh : 0.315, test_acc : 0.9900
+fold :  2, thresh : 0.300, test_acc : 0.9917
+fold :  3, thresh : 0.295, test_acc : 0.9900
+fold :  4, thresh : 0.295, test_acc : 0.9933
+fold :  5, thresh : 0.300, test_acc : 0.9883
+fold :  6, thresh : 0.300, test_acc : 0.9917
+fold :  7, thresh : 0.315, test_acc : 0.9883
+fold :  8, thresh : 0.300, test_acc : 0.9917
+fold :  9, thresh : 0.300, test_acc : 0.9933
+verification was finished, best_thresh : 0.3020, test_acc : 0.9910
+fold :  0, thresh : 0.330, test_acc : 0.9874
+fold :  1, thresh : 0.330, test_acc : 0.9867
+fold :  2, thresh : 0.330, test_acc : 0.9716
+fold :  3, thresh : 0.315, test_acc : 0.9785
+fold :  4, thresh : 0.315, test_acc : 0.9779
+fold :  5, thresh : 0.315, test_acc : 0.9829
+fold :  6, thresh : 0.325, test_acc : 0.9823
+fold :  7, thresh : 0.315, test_acc : 0.9829
+fold :  8, thresh : 0.315, test_acc : 0.9804
+fold :  9, thresh : 0.315, test_acc : 0.9867
+verification was finished, best_thresh : 0.3205, test_acc : 0.9817
+Single epoch cost time : 20.44 mins
+epoch : 44|45, iter :  300| 981,  loss : 4.2570, batch_ave_acc : 0.4860
+epoch : 44|45, iter :  600| 981,  loss : 4.2569, batch_ave_acc : 0.4850
+epoch : 44|45, iter :  900| 981,  loss : 4.2621, batch_ave_acc : 0.4848
+train_loss : 4.2618
+fold :  0, thresh : 0.310, test_acc : 0.9917
+fold :  1, thresh : 0.310, test_acc : 0.9917
+fold :  2, thresh : 0.310, test_acc : 0.9900
+fold :  3, thresh : 0.310, test_acc : 0.9933
+fold :  4, thresh : 0.310, test_acc : 0.9967
+fold :  5, thresh : 0.310, test_acc : 0.9900
+fold :  6, thresh : 0.310, test_acc : 0.9933
+fold :  7, thresh : 0.310, test_acc : 0.9900
+fold :  8, thresh : 0.310, test_acc : 0.9917
+fold :  9, thresh : 0.310, test_acc : 0.9933
+verification was finished, best_thresh : 0.3100, test_acc : 0.9922
+fold :  0, thresh : 0.325, test_acc : 0.9886
+fold :  1, thresh : 0.325, test_acc : 0.9867
+fold :  2, thresh : 0.325, test_acc : 0.9747
+fold :  3, thresh : 0.325, test_acc : 0.9804
+fold :  4, thresh : 0.325, test_acc : 0.9779
+fold :  5, thresh : 0.325, test_acc : 0.9829
+fold :  6, thresh : 0.325, test_acc : 0.9829
+fold :  7, thresh : 0.325, test_acc : 0.9836
+fold :  8, thresh : 0.325, test_acc : 0.9823
+fold :  9, thresh : 0.325, test_acc : 0.9861
+verification was finished, best_thresh : 0.3250, test_acc : 0.9826
+Single epoch cost time : 20.51 mins
+epoch : 45|45, iter :  300| 981,  loss : 4.2659, batch_ave_acc : 0.4869
+epoch : 45|45, iter :  600| 981,  loss : 4.2632, batch_ave_acc : 0.4853
+epoch : 45|45, iter :  900| 981,  loss : 4.2582, batch_ave_acc : 0.4853
+train_loss : 4.2604
+fold :  0, thresh : 0.330, test_acc : 0.9933
+fold :  1, thresh : 0.330, test_acc : 0.9900
+fold :  2, thresh : 0.330, test_acc : 0.9900
+fold :  3, thresh : 0.290, test_acc : 0.9883
+fold :  4, thresh : 0.330, test_acc : 0.9967
+fold :  5, thresh : 0.330, test_acc : 0.9900
+fold :  6, thresh : 0.330, test_acc : 0.9933
+fold :  7, thresh : 0.330, test_acc : 0.9900
+fold :  8, thresh : 0.330, test_acc : 0.9917
+fold :  9, thresh : 0.325, test_acc : 0.9917
+verification was finished, best_thresh : 0.3255, test_acc : 0.9915
+fold :  0, thresh : 0.330, test_acc : 0.9893
+fold :  1, thresh : 0.330, test_acc : 0.9874
+fold :  2, thresh : 0.330, test_acc : 0.9735
+fold :  3, thresh : 0.330, test_acc : 0.9810
+fold :  4, thresh : 0.330, test_acc : 0.9785
+fold :  5, thresh : 0.330, test_acc : 0.9836
+fold :  6, thresh : 0.330, test_acc : 0.9817
+fold :  7, thresh : 0.330, test_acc : 0.9842
+fold :  8, thresh : 0.330, test_acc : 0.9810
+fold :  9, thresh : 0.330, test_acc : 0.9867
+verification was finished, best_thresh : 0.3300, test_acc : 0.9827
+Single epoch cost time : 20.69 mins

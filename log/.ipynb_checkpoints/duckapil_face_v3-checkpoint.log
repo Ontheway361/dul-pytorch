@@ -1,0 +1,9 @@
+----------------Environment Versions----------------
+- Python    : 3.7.3 
+- PyTorch   : 1.1.0
+- TorchVison: 0.3.0
+- USE_GPU   : True
+----------------------------------------------------
+Parallel mode was going ...
+Model loading was finished ...
+Data loading was finished ...

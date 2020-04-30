@@ -1,0 +1,93 @@
+----------------Environment Versions----------------
+- Python    : 3.7.3 
+- PyTorch   : 1.1.0
+- TorchVison: 0.3.0
+- USE_GPU   : True
+----------------------------------------------------
+Parallel mode was going ...
+Model loading was finished ...
+Data loading was finished ...
+epoch :  1|45, iter :  300|1012,  loss : 21.7116, batch_ave_acc : 0.0000
+epoch :  1|45, iter :  600|1012,  loss : 20.6026, batch_ave_acc : 0.0004
+epoch :  1|45, iter :  900|1012,  loss : 19.3894, batch_ave_acc : 0.0017
+train_loss : 18.9828
+fold :  0, thresh : 0.395, test_acc : 0.9282
+fold :  1, thresh : 0.380, test_acc : 0.9233
+fold :  2, thresh : 0.380, test_acc : 0.9017
+fold :  3, thresh : 0.395, test_acc : 0.9250
+fold :  4, thresh : 0.395, test_acc : 0.9117
+fold :  5, thresh : 0.395, test_acc : 0.9133
+fold :  6, thresh : 0.395, test_acc : 0.9350
+fold :  7, thresh : 0.395, test_acc : 0.9167
+fold :  8, thresh : 0.380, test_acc : 0.9233
+fold :  9, thresh : 0.380, test_acc : 0.9283
+verification was finished, best_thresh : 0.3890, test_acc : 0.9207
+fold :  0, thresh : 0.380, test_acc : 0.8420
+fold :  1, thresh : 0.380, test_acc : 0.8382
+fold :  2, thresh : 0.380, test_acc : 0.8173
+fold :  3, thresh : 0.390, test_acc : 0.8306
+fold :  4, thresh : 0.380, test_acc : 0.8401
+fold :  5, thresh : 0.380, test_acc : 0.8451
+fold :  6, thresh : 0.380, test_acc : 0.8357
+fold :  7, thresh : 0.380, test_acc : 0.8249
+fold :  8, thresh : 0.370, test_acc : 0.8369
+fold :  9, thresh : 0.380, test_acc : 0.8440
+verification was finished, best_thresh : 0.3800, test_acc : 0.8355
+Single epoch cost time : 21.65 mins
+****************new SOTA was found****************
+epoch :  2|45, iter :  300|1012,  loss : 14.1269, batch_ave_acc : 0.0136
+epoch :  2|45, iter :  600|1012,  loss : 13.8205, batch_ave_acc : 0.0168
+epoch :  2|45, iter :  900|1012,  loss : 13.5200, batch_ave_acc : 0.0198
+train_loss : 13.4115
+fold :  0, thresh : 0.430, test_acc : 0.9516
+fold :  1, thresh : 0.435, test_acc : 0.9417
+fold :  2, thresh : 0.425, test_acc : 0.9400
+fold :  3, thresh : 0.430, test_acc : 0.9350
+fold :  4, thresh : 0.450, test_acc : 0.9367
+fold :  5, thresh : 0.435, test_acc : 0.9350
+fold :  6, thresh : 0.445, test_acc : 0.9500
+fold :  7, thresh : 0.445, test_acc : 0.9400
+fold :  8, thresh : 0.430, test_acc : 0.9367
+fold :  9, thresh : 0.435, test_acc : 0.9417
+verification was finished, best_thresh : 0.4360, test_acc : 0.9408
+fold :  0, thresh : 0.450, test_acc : 0.8717
+fold :  1, thresh : 0.450, test_acc : 0.8628
+fold :  2, thresh : 0.450, test_acc : 0.8704
+fold :  3, thresh : 0.450, test_acc : 0.8755
+fold :  4, thresh : 0.450, test_acc : 0.8970
+fold :  5, thresh : 0.460, test_acc : 0.8736
+fold :  6, thresh : 0.450, test_acc : 0.8850
+fold :  7, thresh : 0.450, test_acc : 0.8685
+fold :  8, thresh : 0.450, test_acc : 0.8799
+fold :  9, thresh : 0.460, test_acc : 0.8793
+verification was finished, best_thresh : 0.4520, test_acc : 0.8764
+Single epoch cost time : 20.68 mins
+****************new SOTA was found****************
+epoch :  3|45, iter :  300|1012,  loss : 11.5527, batch_ave_acc : 0.0391
+epoch :  3|45, iter :  600|1012,  loss : 11.5671, batch_ave_acc : 0.0412
+epoch :  3|45, iter :  900|1012,  loss : 11.5117, batch_ave_acc : 0.0436
+train_loss : 11.4934
+fold :  0, thresh : 0.385, test_acc : 0.9666
+fold :  1, thresh : 0.385, test_acc : 0.9617
+fold :  2, thresh : 0.385, test_acc : 0.9533
+fold :  3, thresh : 0.380, test_acc : 0.9467
+fold :  4, thresh : 0.385, test_acc : 0.9567
+fold :  5, thresh : 0.385, test_acc : 0.9550
+fold :  6, thresh : 0.385, test_acc : 0.9667
+fold :  7, thresh : 0.385, test_acc : 0.9533
+fold :  8, thresh : 0.385, test_acc : 0.9667
+fold :  9, thresh : 0.385, test_acc : 0.9750
+verification was finished, best_thresh : 0.3845, test_acc : 0.9602
+fold :  0, thresh : 0.450, test_acc : 0.9229
+fold :  1, thresh : 0.450, test_acc : 0.9083
+fold :  2, thresh : 0.450, test_acc : 0.8932
+fold :  3, thresh : 0.450, test_acc : 0.9071
+fold :  4, thresh : 0.450, test_acc : 0.9153
+fold :  5, thresh : 0.450, test_acc : 0.9109
+fold :  6, thresh : 0.450, test_acc : 0.9077
+fold :  7, thresh : 0.450, test_acc : 0.8995
+fold :  8, thresh : 0.450, test_acc : 0.9083
+fold :  9, thresh : 0.450, test_acc : 0.9109
+verification was finished, best_thresh : 0.4500, test_acc : 0.9084
+Single epoch cost time : 21.04 mins
+****************new SOTA was found****************

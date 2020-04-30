@@ -1,0 +1,14 @@
+----------------Environment Versions----------------
+- Python    : 3.7.3 
+- PyTorch   : 1.1.0
+- TorchVison: 0.3.0
+- USE_GPU   : True
+----------------------------------------------------
+Parallel mode was going ...
+Resuming the train process at  31 epoches ...
+Model loading was finished ...
+Data loading was finished ...
+epoch : 31|50, iter :  300|1776,  loss : 4.2208, batch_ave_acc : 0.4362
+epoch : 31|50, iter :  600|1776,  loss : 4.3206, batch_ave_acc : 0.4399
+epoch : 31|50, iter :  900|1776,  loss : 4.3952, batch_ave_acc : 0.4412
+epoch : 31|50, iter : 1200|1776,  loss : 4.4393, batch_ave_acc : 0.4427
