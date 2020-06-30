@@ -5,10 +5,11 @@ This is not the official project of DUL !!!
 face detect, face alignment [The corresponding code is not provided in this project, you can find the corresponding code in [insightface](https://github.com/deepinsight/insightface/tree/master/src).]
 ## Pipeline
 The following pictures are taken from the arXiv-paper, if there is a dispute about the permission, please contact me to delete!
-### Dul_cls
-![Image text](https://github.com/Ontheway361/dul-pytorch/blob/master/pipeline/dul_cls.jpg)
-### Dul_reg
-![Image text](https://github.com/Ontheway361/dul-pytorch/blob/master/pipeline/dul_reg.jpg)
+<table style="border:0px">
+   <tr>
+       <td><img src="pipeline/dul_cls.jpg" width="480" height="240" frame=void rules=none></td>
+       <td><img src="pipeline/depth/dul_reg.jpg" width="480" height="240" frame=void rules=none></td>
+</table>
 
 ## Citation
 ```
