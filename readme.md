@@ -2,6 +2,11 @@
 This is not the official project of DUL !!!
 
 ## Pipeline
+The following pictures are taken from the arXiv-paper, if there is a dispute about the permission, please contact me to delete!
+### Dul_cls
+![Image text](https://github.com/Ontheway361/dul-pytorch/blob/master/pipeline/dul_cls.jpg)
+### Dul_reg
+![Image text](https://github.com/Ontheway361/dul-pytorch/blob/master/pipeline/dul_reg.jpg)
 
 ## Citation
 ```
