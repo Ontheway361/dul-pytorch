@@ -8,7 +8,7 @@ The following pictures are taken from the arXiv-paper, if there is a dispute abo
 <table style="border:0px">
    <tr>
        <td><img src="pipeline/dul_cls.jpg" width="480" height="240" frame=void rules=none></td>
-       <td><img src="pipeline/depth/dul_reg.jpg" width="480" height="240" frame=void rules=none></td>
+       <td><img src="pipeline/dul_reg.jpg" width="480" height="240" frame=void rules=none></td>
 </table>
 
 ## Citation
