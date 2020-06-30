@@ -1,6 +1,8 @@
 ## Notice
 This is not the official project of DUL !!!
 
+## Data preprocessing
+face detect, face alignment [The corresponding code is not provided in this project, you can find the corresponding code in [insightface](https://github.com/deepinsight/insightface/tree/master/src).]
 ## Pipeline
 The following pictures are taken from the arXiv-paper, if there is a dispute about the permission, please contact me to delete!
 ### Dul_cls
