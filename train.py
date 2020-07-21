@@ -27,7 +27,7 @@ from IPython import embed
 class MetricFace(dlib.VerifyFace):
 
     def __init__(self, args):
-         
+
         dlib.VerifyFace.__init__(self, args)
         self.args   = args
         self.model  = dict()
@@ -49,13 +49,13 @@ class MetricFace(dlib.VerifyFace):
 
 
     def _model_loader(self):
-        
+
         self.model['backbone']  = mlib.resnet_zoo(self.args.backbone, drop_ratio=self.args.drop_ratio, use_se=self.args.use_se)  # ResBlock
         self.model['metric']    = mlib.FullyConnectedLayer(self.args)
         self.model['criterion'] = mlib.FaceLoss(self.args)
         self.model['optimizer'] = torch.optim.SGD(
                                       [{'params': self.model['backbone'].parameters()},
-                                       {'params': self.model['metric'].parameters()}], 
+                                       {'params': self.model['metric'].parameters()}],
                                       lr=self.args.base_lr,
                                       weight_decay=self.args.weight_decay,
                                       momentum=0.9,
@@ -69,7 +69,7 @@ class MetricFace(dlib.VerifyFace):
             self.model['backbone']  = self.model['backbone'].cuda()
             self.model['metric']    = self.model['metric'].cuda()
             self.model['criterion'] = self.model['criterion'].cuda()
-            
+
         if self.device and len(self.args.gpu_ids) > 1:
             self.model['backbone']  = torch.nn.DataParallel(self.model['backbone'], device_ids=self.args.gpu_ids)
             self.model['metric']    = torch.nn.DataParallel(self.model['metric'],   device_ids=self.args.gpu_ids)
@@ -114,7 +114,7 @@ class MetricFace(dlib.VerifyFace):
             if self.device:
                 img = img.cuda()
                 gty = gty.cuda()
-            
+
             feat_mu, feat_var = self.model['backbone'](img)
             output  = self.model['metric'](feat_mu, gty)
             loss    = self.model['criterion'](output, gty, feat_mu, feat_var)
@@ -132,38 +132,37 @@ class MetricFace(dlib.VerifyFace):
         train_loss = np.mean(loss_recorder)
         print('train_loss : %.4f' % train_loss)
         return train_loss
-    
-    
+
     def _verify_lfw(self):
-        
+
         self._eval_lfw()
 
         self._k_folds()
 
         best_thresh, lfw_acc = self._eval_runner()
-        
+
         return best_thresh, lfw_acc
-    
+
 
     def _main_loop(self):
 
         if not os.path.exists(self.args.save_to):
                 os.mkdir(self.args.save_to)
-        
+
         max_lfw_acc = 0.0
         for epoch in range(self.args.start_epoch, self.args.end_epoch + 1):
 
             start_time = time.time()
-            
+
             train_loss = self._model_train(epoch)
             self.model['scheduler'].step()
             lfw_thresh, lfw_acc = self._verify_lfw()
-            
+
             end_time = time.time()
             print('Single epoch cost time : %.2f mins' % ((end_time - start_time)/60))
-            
+
             if max_lfw_acc < lfw_acc:
-                
+
                 print('%snew SOTA was found%s' % ('*'*16, '*'*16))
                 max_lfw_acc = lfw_acc
                 filename = os.path.join(self.args.save_to, 'sota.pth.tar')
@@ -183,7 +182,7 @@ class MetricFace(dlib.VerifyFace):
                     'metric'  : self.model['metric'].state_dict(),
                     'lfw_acc' : max_lfw_acc,
                 }, savename)
-            
+
             if self.args.is_debug:
                 break
 
@@ -193,9 +192,9 @@ class MetricFace(dlib.VerifyFace):
         self._report_settings()
 
         self._model_loader()
-        
+
         self._data_loader()
-        
+
         self._main_loop()
 
 

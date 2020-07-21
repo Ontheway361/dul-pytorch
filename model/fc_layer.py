@@ -10,11 +10,11 @@ from IPython import embed
 
 
 class FullyConnectedLayer(nn.Module):
-    
+    ''' fully connected layer lib for face-recognition '''
     def __init__(self, args):
-        
+
         super(FullyConnectedLayer, self).__init__()
-        
+
         self.args   = args
         self.weight = nn.Parameter(torch.Tensor(args.classnum, args.in_feats))
         nn.init.xavier_uniform_(self.weight)
@@ -36,40 +36,40 @@ class FullyConnectedLayer(nn.Module):
             lambda x: 16 * x ** 5 - 20 * x ** 3 + 5 * x
         ]
 
-        
-    def forward(self, x, label):  
-        
+
+    def forward(self, x, label):
+
         cos_theta  = F.linear(F.normalize(x), F.normalize(self.weight))
-        cos_theta  = cos_theta.clamp(-1, 1) 
+        cos_theta  = cos_theta.clamp(-1, 1)
         batch_size = label.size(0)
-        cosin_simi = cos_theta[torch.arange(0, batch_size), label].view(-1, 1) 
+        cosin_simi = cos_theta[torch.arange(0, batch_size), label].view(-1, 1)
 
         if self.args.fc_mode == 'softmax':
             score = cosin_simi
-            
+
         elif self.args.fc_mode == 'sphereface':
             self.iter  += 1
             self.lamb   = max(self.lambda_min, self.base * (1 + self.alpha * self.iter) ** (-1 * self.power))
-            cos_theta_m = self.mlambda[int(self.args.margin)](cosin_simi) 
+            cos_theta_m = self.mlambda[int(self.args.margin)](cosin_simi)
             theta       = cosin_simi.data.acos()
             k           = ((self.args.margin * theta) / math.pi).floor()
             phi_theta   = ((-1.0) ** k) * cos_theta_m - 2 * k
             score       = (self.lamb * cosin_simi + phi_theta) / (1 + self.lamb)
-            
+
         elif self.args.fc_mode == 'cosface':
             if self.args.easy_margin:
                 score = torch.where(cosin_simi > 0, cosin_simi - self.args.margin, cosin_simi)
             else:
                 score = cosin_simi - self.args.margin
-                
+
         elif self.args.fc_mode == 'arcface':
             sin_theta   = torch.sqrt(1.0 - torch.pow(cosin_simi, 2))
-            cos_theta_m = cosin_simi * self.cos_m - sin_theta * self.sin_m  
+            cos_theta_m = cosin_simi * self.cos_m - sin_theta * self.sin_m
             if self.args.easy_margin:
                 score = torch.where(cosin_simi > 0, cos_theta_m, cosin_simi)
             else:
                 score = cos_theta_m
-                
+
         elif self.args.fc_mode == 'mvcos':
             mask        = cos_theta > cosin_simi - self.args.margin
             hard_vector = cos_theta[mask]
@@ -81,7 +81,7 @@ class FullyConnectedLayer(nn.Module):
                 score = torch.where(cosin_simi > 0, cosin_simi - self.args.margin, cosin_simi)
             else:
                 score = cosin_simi - self.args.margin
-                
+
         elif self.args.fc_mode == 'mvarc':
             sin_theta   = torch.sqrt(1.0 - torch.pow(cosin_simi, 2))
             cos_theta_m = cosin_simi * self.cos_m - sin_theta * self.sin_m
@@ -95,7 +95,7 @@ class FullyConnectedLayer(nn.Module):
                 score = torch.where(cosin_simi > 0, cos_theta_m, cosin_simi)
             else:
                 score = cos_theta_m
-        
+
         elif self.args.fc_mode == 'curface':
             with torch.no_grad():
                 origin_cos = cos_theta
