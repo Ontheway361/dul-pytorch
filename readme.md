@@ -7,8 +7,8 @@ face detect, face alignment [The corresponding code is not provided in this proj
 The following pictures are taken from the arXiv-paper, if there is a dispute about the permission, please contact me to delete!
 <table style="border:0px">
    <tr>
-       <td><img src="pipeline/dul_cls.jpg" width="480" height="220" frame=void rules=none></td>
-       <td><img src="pipeline/dul_reg.jpg" width="480" height="220" frame=void rules=none></td>
+       <td><img src="pipeline/dul_cls.jpg" width="480" height="200" frame=void rules=none></td>
+       <td><img src="pipeline/dul_reg.jpg" width="480" height="200" frame=void rules=none></td>
 </table>
 
 ## Citation
