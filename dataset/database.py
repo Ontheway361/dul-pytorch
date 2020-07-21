@@ -11,7 +11,7 @@ from torch.utils import data
 from IPython import embed
 
 
-class CASIAWebFace(data.Dataset):
+class DataBase(data.Dataset):
 
     def __init__(self, args, mode = 'train'):
 
@@ -44,17 +44,15 @@ class CASIAWebFace(data.Dataset):
 
     def __getitem__(self, index):
 
-        # info  = self.lines[index].strip().split('\t')
         info = self.lines[index].strip().split(' ')
         img  = self._load_imginfo(info[0])
         while img is None:
-            idx        = np.random.randint(0, len(self.lines) - 1)
-            # info  = self.lines[idx].strip().split('\t')
+            idx  = np.random.randint(0, len(self.lines) - 1)
             info = self.lines[idx].strip().split(' ')
             img  = self._load_imginfo(info[0])
         img = self.transforms(img)
         return (img, int(info[1]), info[0])
 
-
+    
     def __len__(self):
         return len(self.lines)
