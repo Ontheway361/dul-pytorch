@@ -35,7 +35,6 @@ def training_args():
     parser.add_argument('--loss_power', type=int,    default=2)            # focal_loss
     parser.add_argument('--classnum',   type=int,    default=85742)        # MS1M-mimi
 
-
     # -- optimizer
     parser.add_argument('--start_epoch', type=int,   default=1)        #
     parser.add_argument('--end_epoch',   type=int,   default=50)
@@ -46,7 +45,6 @@ def training_args():
     parser.add_argument('--gamma',       type=float, default=0.3)      # FIXED
     parser.add_argument('--weight_decay',type=float, default=5e-4)     # FIXED
     parser.add_argument('--resume',      type=str,   default='')       # checkpoint
-
 
     # -- dataset
     parser.add_argument('--ms1m_dir',   type=str, default=ms1m_dir)   # 
