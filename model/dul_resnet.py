@@ -130,7 +130,8 @@ class DULResNet(nn.Module):
             Flatten(),
             nn.Linear(512 * block.expansion * 7 * 7, feat_dim),
             nn.BatchNorm1d(feat_dim, eps=2e-5))
-
+        
+        # use logvar instead of var !!!
         self.logvar_head = nn.Sequential(
             nn.BatchNorm2d(512 * block.expansion, eps=2e-5, affine=False),
             nn.Dropout(p=drop_ratio),
@@ -171,7 +172,7 @@ class DULResNet(nn.Module):
         mu = self.mu_head(x)
         logvar = self.logvar_head(x)
         embedding = self._reparameterize(mu, logvar)
-        return mu, logvar, embedding
+        return (mu, logvar, embedding)
 
 
 def dulres_zoo(backbone = 'dulres18', feat_dim = 512, drop_ratio = 0.4, use_se = True):

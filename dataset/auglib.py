@@ -3,13 +3,14 @@
 
 import numpy as np
 import albumentations as alt
-import torchvision.transforms as T
+import torchvision.transforms as transforms
 from albumentations.pytorch import ToTensorV2 as ToTensor
 
 
 def aug_train():
     ''' augmentation for training a FR-system '''
     aug = alt.Compose([
+              alt.Resize(height=112, width=112),
               alt.HorizontalFlip(p=0.5),
               alt.HueSaturationValue(hue_shift_limit=10, sat_shift_limit=20, val_shift_limit=10, p=0.2),
               alt.RGBShift(r_shift_limit=20, g_shift_limit=20, b_shift_limit=20, p=0.2),
@@ -27,5 +28,16 @@ def aug_infer():
     ''' augmentation for inference of a FR-system '''
     return alt.Compose([alt.Normalize(), ToTensor()])
 
+
+def aug_naive():
+    
+    return alt.Compose([
+               alt.Resize(height=112, width=112),
+               alt.Normalize(),
+               ToTensor()])
+
 def aug_old():
-    return T.Compose([T.ToTensor(), T.Normalize(mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])])
+    return transforms.Compose([
+               transforms.Resize(size=(112, 112)), \
+               transforms.ToTensor(), \
+               transforms.Normalize(mean=[0.5], std=[0.5])])

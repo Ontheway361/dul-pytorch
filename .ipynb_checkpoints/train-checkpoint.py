@@ -24,14 +24,15 @@ torch.backends.cudnn.bencmark = True
 from IPython import embed
 
 
-class DULTrainer(dlib.VerifyFace):
+class DULTrainer(mlib.Faster1v1):
 
     def __init__(self, args):
 
-        dlib.VerifyFace.__init__(self, args)
+        mlib.Faster1v1.__init__(self, args)
         self.args    = args
         self.model   = dict()
         self.data    = dict()
+        self.result  = dict()
         self.softmax = torch.nn.Softmax(dim=1)
         self.use_gpu = args.use_gpu and torch.cuda.is_available()
 
@@ -45,14 +46,15 @@ class DULTrainer(dlib.VerifyFace):
         print("- PyTorch   : {}".format(torch.__version__))
         print("- TorchVison: {}".format(torchvision.__version__))
         print("- USE_GPU   : {}".format(self.use_gpu))
+        print("- IS_DEBUG  : {}".format(self.args.is_debug))
         print('-' * 52)
 
 
     def _model_loader(self):
 
-        self.model['backbone']  = mlib.resnet_zoo(self.args.backbone, drop_ratio=self.args.drop_ratio, use_se=self.args.use_se)  # ResBlock
+        self.model['backbone']  = mlib.dulres_zoo(self.args.backbone, drop_ratio=self.args.drop_ratio, use_se=self.args.use_se)  # ResBlock
         self.model['fc_layer']  = mlib.FullyConnectedLayer(self.args)
-        self.model['criterion'] = mlib.FaceLoss(self.args)
+        self.model['criterion'] = mlib.DULLoss(self.args)
         self.model['optimizer'] = torch.optim.SGD(
                                       [{'params': self.model['backbone'].parameters()},
                                        {'params': self.model['fc_layer'].parameters()}],
@@ -84,25 +86,40 @@ class DULTrainer(dlib.VerifyFace):
             print('Resuming the train process at %3d epoches ...' % self.args.start_epoch)
         print('Model loading was finished ...')
 
-
+    
+    @staticmethod
+    def collate_fn_1v1(batch):
+        imgs, pairs_info = [], []
+        for unit in batch:
+            pairs_info.append([unit['name1'], unit['name2'], unit['label']])
+            imgs.append(torch.cat((unit['face1'], unit['face2']), dim=0))
+        return (torch.stack(imgs, dim=0), np.array(pairs_info))
+    
+    
     def _data_loader(self):
 
-        self.data['train_loader'] = DataLoader(
-                                        dlib.CASIAWebFace(self.args, mode='train'),
-                                        batch_size=self.args.batch_size, \
-                                        shuffle=True,
-                                    )
-        self.data['lfw']   = dlib.LFW(self.args)  # TODO
+        self.data['train'] = DataLoader(
+                                 dlib.DataBase(self.args),
+                                 batch_size=self.args.batch_size, \
+                                 shuffle=True,
+                                 num_workers=self.args.workers)
+        
+        self.data['lfw'] = DataLoader(
+                               dlib.VerifyBase(self.args, benchmark = 'lfw'),
+                               batch_size=self.args.batch_size // 2, \
+                               num_workers=self.args.workers,
+                               drop_last=False,
+                               collate_fn=self.collate_fn_1v1)
         print('Data loading was finished ...')
 
 
-    def _model_train(self, epoch = 0):
+    def _train_one_epoch(self, epoch = 0):
 
         self.model['backbone'].train()
         self.model['fc_layer'].train()
 
         loss_recorder, batch_acc = [], []
-        for idx, (img, gty, _) in enumerate(self.data['train_loader']):
+        for idx, (img, gty, _) in enumerate(self.data['train']):
 
             img.requires_grad = False
             gty.requires_grad = False
@@ -111,9 +128,9 @@ class DULTrainer(dlib.VerifyFace):
                 img = img.cuda()
                 gty = gty.cuda()
 
-            feat_mu, feat_var = self.model['backbone'](img)
-            output  = self.model['fc_layer'](feat_mu, gty)
-            loss    = self.model['criterion'](output, gty, feat_mu, feat_var)
+            mu, logvar, embedding = self.model['backbone'](img)
+            output  = self.model['fc_layer'](embedding, gty)
+            loss    = self.model['criterion'](output, gty, mu, logvar)
             self.model['optimizer'].zero_grad()
             loss.backward()
             self.model['optimizer'].step()
@@ -123,62 +140,58 @@ class DULTrainer(dlib.VerifyFace):
             loss_recorder.append(loss.item())
             if (idx + 1) % self.args.print_freq == 0:
                 print('epoch : %2d|%2d, iter : %4d|%4d,  loss : %.4f, batch_ave_acc : %.4f' % \
-                      (epoch, self.args.end_epoch, idx+1, len(self.data['train_loader']), \
-                       np.mean(loss_recorder), np.mean(batch_acc)))
+                      (epoch, self.args.end_epoch, idx+1, len(self.data['train']), np.mean(loss_recorder), np.mean(batch_acc)))
         train_loss = np.mean(loss_recorder)
         print('train_loss : %.4f' % train_loss)
         return train_loss
-
-    def _verify_lfw(self):
-
-        self._eval_lfw()
-
-        self._k_folds()
-
-        best_thresh, lfw_acc = self._eval_runner()
-
-        return best_thresh, lfw_acc
-
-
-    def _main_loop(self):
-
+    
+    
+    def _save_weights(self, testinfo = {}):
+        ''' save the weights during the process of training '''
+        
         if not os.path.exists(self.args.save_to):
-                os.mkdir(self.args.save_to)
+            os.mkdir(self.args.save_to)
+            
+        freq_flag = self.result['epoch'] % self.args.save_freq == 0
+        sota_flag = self.result['sota_acc'] < testinfo['test_acc']
+        save_name = '%s/epoch_%02d-lfw_opt_thresh_%.4f-racc_%.4f.pth' % \
+                         (self.args.save_to, self.result['epoch'], testinfo['opt_thresh'], testinfo['test_acc'])
+        if sota_flag:
+            save_name = '%s/sota.pth' % self.args.save_to
+            self.result['opt_thresh'] = testinfo['opt_thresh']
+            self.result['sota_acc']   = testinfo['test_acc']
+            print('%s Yahoo, SOTA model was updated %s' % ('*'*16, '*'*16))
+        
+        if sota_flag or freq_flag:
+            torch.save({
+                'epoch'   : self.result['epoch'], 
+                'backbone': self.model['backbone'].state_dict(),
+                'fc_layer': self.model['fc_layer'].state_dict(),
+                'thresh'  : testinfo['opt_thresh'],
+                'sota_acc': testinfo['test_acc']}, save_name)
+            
+        if sota_flag and freq_flag:
+            normal_name = '%s/epoch_%02d-lfw_opt_thresh_%.4f-racc_%.4f.pth' % \
+                              (self.args.save_to, self.result['epoch'], testinfo['opt_thresh'], testinfo['test_acc'])
+            shutil.copy(save_name, normal_name)
+            
+            
+    def _dul_training(self):
 
-        max_lfw_acc = 0.0
+        
+        self.result['opt_thresh'] = -1.0
+        self.result['sota_acc']   = 0
         for epoch in range(self.args.start_epoch, self.args.end_epoch + 1):
 
             start_time = time.time()
-
-            train_loss = self._model_train(epoch)
+            self.result['epoch'] = epoch
+            train_loss = self._train_one_epoch(epoch)
             self.model['scheduler'].step()
-            lfw_thresh, lfw_acc = self._verify_lfw()
-
+            eval_info = self._evaluate_one_epoch(loader='lfw')
             end_time = time.time()
             print('Single epoch cost time : %.2f mins' % ((end_time - start_time)/60))
-
-            if max_lfw_acc < lfw_acc:
-
-                print('%snew SOTA was found%s' % ('*'*16, '*'*16))
-                max_lfw_acc = lfw_acc
-                filename = os.path.join(self.args.save_to, 'sota.pth.tar')
-                torch.save({
-                    'epoch'   : epoch,
-                    'backbone': self.model['backbone'].state_dict(),
-                    'fc_layer': self.model['fc_layer'].state_dict(),
-                    'lfw_acc' : max_lfw_acc,
-                }, filename)
-
-            if epoch % self.args.save_freq == 0:
-                filename = 'epoch_%d_lfw_%.4f.pth.tar' % (epoch, max_lfw_acc)
-                savename = os.path.join(self.args.save_to, filename)
-                torch.save({
-                    'epoch'   : epoch,
-                    'backbone': self.model['backbone'].state_dict(),
-                    'fc_layer': self.model['fc_layer'].state_dict(),
-                    'lfw_acc' : max_lfw_acc,
-                }, savename)
-
+            self._save_weights(eval_info)
+            
             if self.args.is_debug:
                 break
 
@@ -191,7 +204,7 @@ class DULTrainer(dlib.VerifyFace):
 
         self._data_loader()
 
-        self._main_loop()
+        self._dul_training()
 
 
 if __name__ == "__main__":

@@ -6,7 +6,7 @@ import cv2
 import numpy as np
 import pandas as pd
 from torch.utils import data
-import dataset.augface as auglib
+import dataset.auglib as auglib
 
 from IPython import embed
 
@@ -17,7 +17,7 @@ class VerifyBase(data.Dataset):
         super(VerifyBase).__init__()
         self.args  = args
         self.bmark = benchmark
-        self.trans = auglib.aug_infer()
+        self.trans = auglib.aug_naive()
         self.data_dir = ''
         self._load_pairfile()
 
@@ -43,7 +43,8 @@ class VerifyBase(data.Dataset):
         img_path = os.path.join(self.data_dir, img_name)
         img = None
         try:
-            img = cv2.resize(cv2.imread(img_path), self.args.in_size[::-1])  #  TODO
+            # img = cv2.resize(cv2.imread(img_path), self.args.in_size[::-1])  #  TODO
+            img = cv2.imread(img_path)
         except Exception as e:
             img = None
         return img

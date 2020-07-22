@@ -32,11 +32,10 @@ class Faster1v1(object):
             simi_list   = []
             for idx, (imgs, pair_info) in enumerate(self.data[loader]):
 
-                imgs = imgs.view((-1, 3, self.args.in_size[0], self.args.in_size[1]))
+                imgs = imgs.view((-1, 3, imgs.size(-2), imgs.size(-1)))
                 if self.device:
                     imgs = imgs.cuda()
-                # feats = self.model['backbone'](imgs)
-                feats = self.model['backbone'](imgs)
+                feats, _, _ = self.model['backbone'](imgs)
                 norms = torch.unsqueeze(torch.norm(feats, dim=1), dim=1)
                 norms = torch.mm(norms, norms.t())
                 simis = torch.mm(feats, feats.t()) / (norms + 1e-5)
@@ -103,10 +102,10 @@ class Faster1v1(object):
         print(metrics.classification_report(gt_y, pred_y, digits=4))
         print(metrics.confusion_matrix(gt_y, pred_y))
         print('-' * 85)
-        return [acc, precision, recall]
+        return acc
 
 
-    def _verify_runner(self, loader = 'lfw'):
+    def _evaluate_one_epoch(self, loader = 'lfw'):
 
         print('quicky 1v1 on %s is going ...' % loader)
         self._quickly_1v1(loader)
@@ -119,8 +118,9 @@ class Faster1v1(object):
             opt_thresh_list.append(best_thresh)
             test_acc_list.append(test_acc)
             print('fold : %2d, thresh : %.3f, test_acc : %.4f' % (k, best_thresh, test_acc))
-        opt_thresh = np.mean(opt_thresh_list)
-        test_acc   = np.mean(test_acc_list)
-        print('verification was finished, best_thresh : %.4f, test_acc : %.4f' % (opt_thresh, test_acc))
-        self.calculate_acc(opt_thresh)
-        return opt_thresh, test_acc
+        eval_info = {}
+        eval_info['opt_thresh'] = np.mean(opt_thresh_list)
+        eval_info['test_acc']   = self.calculate_acc(eval_info['opt_thresh'])
+        print('verification was finished, best_thresh : %.4f, test_acc : %.4f' % \
+              (eval_info['opt_thresh'], eval_info['test_acc']))
+        return eval_info
