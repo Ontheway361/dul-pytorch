@@ -8,12 +8,12 @@ import torch.nn.functional as F
 from IPython import embed
 
 
-class DULLoss(nn.Module):
+class ClsLoss(nn.Module):
     ''' Classic loss function for face recognition '''
 
     def __init__(self, args):
 
-        super(DULLoss, self).__init__()
+        super(ClsLoss, self).__init__()
         self.args     = args
 
 
@@ -41,3 +41,20 @@ class DULLoss(nn.Module):
             kl_loss = kl_loss.sum(dim=1).mean()
             loss    = loss + self.args.kl_lambda * kl_loss
         return loss
+
+
+def RegLoss(nn.Module):
+
+    def __init__(self, pretrained_fc, feat_dim = 512, classnum = 85742):
+
+        self.fc_weights = None
+
+    def _fetch_fc_weights(self):
+        pass
+
+    def forward(self, mu, logvar, labels):
+
+        fit_loss = (self.fc_weights[labels] - mu).pow(2) / (1e-10 + torch.exp(logvar))
+        reg_loss = (fit_loss + logvar) / 2.0
+        reg_loss = torch.sum(reg_loss, dim=1).mean()
+        return reg_loss

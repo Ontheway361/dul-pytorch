@@ -108,7 +108,8 @@ class IR_Bottleneck(nn.Module):
 
 class DULResNet(nn.Module):
 
-    def __init__(self, block, layers, feat_dim = 512, drop_ratio = 0.5, use_se = True):
+    def __init__(self, block = IR_BasicBlock, layers = [2, 2, 2, 2], \
+                     feat_dim = 512, drop_ratio = 0.4, use_se = True):
 
         super(DULResNet, self).__init__()
 
@@ -130,7 +131,7 @@ class DULResNet(nn.Module):
             Flatten(),
             nn.Linear(512 * block.expansion * 7 * 7, feat_dim),
             nn.BatchNorm1d(feat_dim, eps=2e-5))
-        
+
         # use logvar instead of var !!!
         self.logvar_head = nn.Sequential(
             nn.BatchNorm2d(512 * block.expansion, eps=2e-5, affine=False),
