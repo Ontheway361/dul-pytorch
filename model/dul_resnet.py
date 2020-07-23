@@ -107,19 +107,24 @@ class IR_Bottleneck(nn.Module):
 
 
 class DULResNet(nn.Module):
-
-    def __init__(self, block = IR_BasicBlock, layers = [2, 2, 2, 2], \
-                     feat_dim = 512, drop_ratio = 0.4, use_se = True):
-
+    def __init__(self, block, layers, feat_dim = 512, drop_ratio = 0.4, use_se = True, used_as = 'baseline'):
+        '''
+        use_for = baseline : just use mu_head for deterministic model
+        use_for = dul_cls  : use both mu_head and logvar_head for dul_cls model
+        use_for = backbone : neither mu_head nor logvar_head is used, just for feature extracting.
+        '''
         super(DULResNet, self).__init__()
 
         self.inplanes = 64
-        self.use_se = use_se
+        self.use_se   = use_se
+        self.used_as  = used_as
+        
         self.layer0 = nn.Sequential(
             nn.Conv2d(3, self.inplanes, kernel_size=3, stride=1, padding=1, bias=False),
             nn.BatchNorm2d(self.inplanes),
             nn.PReLU(),
             nn.MaxPool2d(kernel_size=2, stride=2))
+        
         self.layer1 = self._make_layer(block, 64,  layers[0])
         self.layer2 = self._make_layer(block, 128, layers[1], stride=2)
         self.layer3 = self._make_layer(block, 256, layers[2], stride=2)
@@ -133,16 +138,16 @@ class DULResNet(nn.Module):
             nn.BatchNorm1d(feat_dim, eps=2e-5))
 
         # use logvar instead of var !!!
-        self.logvar_head = nn.Sequential(
-            nn.BatchNorm2d(512 * block.expansion, eps=2e-5, affine=False),
-            nn.Dropout(p=drop_ratio),
-            Flatten(),
-            nn.Linear(512 * block.expansion * 7 * 7, feat_dim),
-            nn.BatchNorm1d(feat_dim, eps=2e-5))
+        if used_as == 'dul_cls':
+            self.logvar_head = nn.Sequential(
+                nn.BatchNorm2d(512 * block.expansion, eps=2e-5, affine=False),
+                nn.Dropout(p=drop_ratio),
+                Flatten(),
+                nn.Linear(512 * block.expansion * 7 * 7, feat_dim),
+                nn.BatchNorm1d(feat_dim, eps=2e-5))
 
 
     def _make_layer(self, block, planes, blocks, stride=1):
-
         downsample = None
         if stride != 1 or self.inplanes != planes * block.expansion:
             downsample = nn.Sequential(
@@ -164,35 +169,42 @@ class DULResNet(nn.Module):
         return mu + epsilon * std
 
     def forward(self, x):
-
         x = self.layer0(x)
         x = self.layer1(x)
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
-        mu = self.mu_head(x)
-        logvar = self.logvar_head(x)
-        embedding = self._reparameterize(mu, logvar)
+        if self.use_for == 'backbone':
+            mu = x
+            logvar = None, 
+            embedding = None
+        elif self.use_for == 'baseline':
+            mu = self.mu_head(x)
+            logvar = None, 
+            embedding = None
+        else:
+            mu = self.mu_head(x)
+            logvar = self.logvar_head(x)
+            embedding = self._reparameterize(mu, logvar)
         return (mu, logvar, embedding)
 
-
-def dulres_zoo(backbone = 'dulres18', feat_dim = 512, drop_ratio = 0.4, use_se = True):
-
+    
+def dulres_zoo(backbone = 'dulres18', feat_dim = 512, drop_ratio = 0.4, \
+               use_se = True, used_as = 'baseline'):
     zoo_dict = {
         'dulres18' : [2, 2, 2, 2],
         'dulres50' : [3, 4, 6, 3],
         'dulres101': [3, 4, 23,3],
     }
-    if backbone == 'dulres18':
-        block = IR_BasicBlock
-    else:
-        block = IR_Bottleneck
-    return DULResNet(block, zoo_dict[backbone], feat_dim, drop_ratio, use_se)
+
+    block = IR_BasicBlock if backbone == 'dulres18' else IR_Bottleneck
+    return DULResNet(block, zoo_dict[backbone], feat_dim, drop_ratio, use_se, used_as)
+
 
 
 if __name__ == "__main__":
 
-    model = dulres_zoo('dulres18', use_se=True)
+    model = dulres_zoo(backbone='dulres18', bb_type='baseline')
     input = torch.randn(1, 3, 112, 112)
     flops, params = thop.profile(model, inputs=(input, ))
     flops, params = thop.clever_format([flops, params], "%.3f")

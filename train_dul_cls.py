@@ -24,7 +24,7 @@ torch.backends.cudnn.bencmark = True
 from IPython import embed
 
 
-class DULTrainer(mlib.Faster1v1):
+class DulClsTrainer(mlib.Faster1v1):
 
     def __init__(self, args):
 
@@ -52,9 +52,12 @@ class DULTrainer(mlib.Faster1v1):
 
     def _model_loader(self):
 
-        self.model['backbone']  = mlib.dulres_zoo(self.args.backbone, drop_ratio=self.args.drop_ratio, use_se=self.args.use_se)  # ResBlock
+        self.model['backbone']  = mlib.dulres_zoo(self.args.backbone, \
+                                                  drop_ratio=self.args.drop_ratio, \
+                                                  use_se=self.args.use_se, \
+                                                  used_as='dul_cls')  # ResBlock
         self.model['fc_layer']  = mlib.FullyConnectedLayer(self.args)
-        self.model['criterion'] = mlib.DULLoss(self.args)
+        self.model['criterion'] = mlib.ClsLoss(self.args)
         self.model['optimizer'] = torch.optim.SGD(
                                       [{'params': self.model['backbone'].parameters()},
                                        {'params': self.model['fc_layer'].parameters()}],
@@ -209,5 +212,5 @@ class DULTrainer(mlib.Faster1v1):
 
 if __name__ == "__main__":
 
-    dul = DULTrainer(training_args())
-    dul.train_runner()
+    dul_cls = DulClsTrainer(training_args())
+    dul_cls.train_runner()

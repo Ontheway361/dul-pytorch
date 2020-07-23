@@ -16,7 +16,7 @@ from torch.utils.data import DataLoader
 
 import model as mlib
 import dataset as dlib
-from config import training_args
+from config import reg_args
 
 torch.backends.cudnn.bencmark = True
 # os.environ["CUDA_VISIBLE_DEVICES"] = "6,7" # TODO
@@ -24,7 +24,7 @@ torch.backends.cudnn.bencmark = True
 from IPython import embed
 
 
-class DULTrainer(mlib.Faster1v1):
+class DulRegTrainer(mlib.Faster1v1):
 
     def __init__(self, args):
 
@@ -52,26 +52,26 @@ class DULTrainer(mlib.Faster1v1):
 
     def _model_loader(self):
 
-        self.model['backbone']  = mlib.dulres_zoo(self.args.backbone, drop_ratio=self.args.drop_ratio, use_se=self.args.use_se)  # ResBlock
-        self.model['fc_layer']  = mlib.FullyConnectedLayer(self.args)
-        self.model['criterion'] = mlib.DULLoss(self.args)
+        self.model['backbone']  = mlib.dulres_zoo(self.args.backbone, \
+                                                  drop_ratio=self.args.drop_ratio, \
+                                                  use_se=self.args.use_se,\
+                                                  used_as='backbone')  # ResBlock
+        self.model['reg_head']  = mlib.RegHead(drop_ratio=self.args.drop_ratio)
+        self.model['criterion'] = mlib.RegLoss(feat_dim=self.args.in_feats, classnum=self.args.classnum)
         self.model['optimizer'] = torch.optim.SGD(
-                                      [{'params': self.model['backbone'].parameters()},
-                                       {'params': self.model['fc_layer'].parameters()}],
-                                      lr=self.args.base_lr,
-                                      weight_decay=self.args.weight_decay,
-                                      momentum=0.9,
-                                      nesterov=True)
+                                      [{'params': self.model['reg_head'].parameters()}],
+                                       lr=self.args.base_lr,
+                                       weight_decay=self.args.weight_decay,
+                                       momentum=0.9,
+                                       nesterov=True)
         self.model['scheduler'] = torch.optim.lr_scheduler.MultiStepLR(
                                       self.model['optimizer'], milestones=self.args.lr_adjust, gamma=self.args.gamma)
         if self.use_gpu:
             self.model['backbone']  = self.model['backbone'].cuda()
-            self.model['fc_layer']  = self.model['fc_layer'].cuda()
             self.model['criterion'] = self.model['criterion'].cuda()
 
         if self.use_gpu and len(self.args.gpu_ids) > 1:
             self.model['backbone'] = torch.nn.DataParallel(self.model['backbone'], device_ids=self.args.gpu_ids)
-            self.model['fc_layer'] = torch.nn.DataParallel(self.model['fc_layer'], device_ids=self.args.gpu_ids)
             print('Parallel mode was going ...')
         elif self.use_gpu:
             print('Single-gpu mode was going ...')
@@ -82,7 +82,8 @@ class DULTrainer(mlib.Faster1v1):
             checkpoint = torch.load(self.args.resume, map_location=lambda storage, loc: storage)
             self.args.start_epoch = checkpoint['epoch']
             self.model['backbone'].load_state_dict(checkpoint['backbone'])
-            self.model['fc_layer'].load_state_dict(checkpoint['fc_layer'])
+            self.model['criterion'].fetch_center_from_fc_layer(checkpoint['fc_layer'])
+            self.model['backbone'].eval() # backbone was fixed
             print('Resuming the train process at %3d epoches ...' % self.args.start_epoch)
         print('Model loading was finished ...')
 
@@ -119,28 +120,25 @@ class DULTrainer(mlib.Faster1v1):
         self.model['fc_layer'].train()
 
         loss_recorder, batch_acc = [], []
-        for idx, (img, gty, _) in enumerate(self.data['train']):
+        for idx, (imgs, gtys, _) in enumerate(self.data['train']):
 
-            img.requires_grad = False
+            imgs.requires_grad = False
             gty.requires_grad = False
 
             if self.use_gpu:
-                img = img.cuda()
-                gty = gty.cuda()
+                imgs = imgs.cuda()
+                gtys = gtys.cuda()
 
-            mu, logvar, embedding = self.model['backbone'](img)
-            output  = self.model['fc_layer'](embedding, gty)
-            loss    = self.model['criterion'](output, gty, mu, logvar)
+            outfeat, _, _ = self.model['backbone'](imgs)          # CORE
+            mu, logvar = self.model['reg_head'](outfeat)   # CORE
+            loss = self.model['criterion'](mu, logvar, gty) # CORE
             self.model['optimizer'].zero_grad()
             loss.backward()
             self.model['optimizer'].step()
-            predy   = np.argmax(output.data.cpu().numpy(), axis=1)  # TODO
-            it_acc  = np.mean((predy == gty.data.cpu().numpy()).astype(int))
-            batch_acc.append(it_acc)
             loss_recorder.append(loss.item())
             if (idx + 1) % self.args.print_freq == 0:
-                print('epoch : %2d|%2d, iter : %4d|%4d,  loss : %.4f, batch_ave_acc : %.4f' % \
-                      (epoch, self.args.end_epoch, idx+1, len(self.data['train']), np.mean(loss_recorder), np.mean(batch_acc)))
+                print('epoch : %2d|%2d, iter : %4d|%4d,  loss : %.4f' % \
+                      (epoch, self.args.end_epoch, idx+1, len(self.data['train']), np.mean(loss_recorder)))
         train_loss = np.mean(loss_recorder)
         print('train_loss : %.4f' % train_loss)
         return train_loss
@@ -209,5 +207,5 @@ class DULTrainer(mlib.Faster1v1):
 
 if __name__ == "__main__":
 
-    dul = DULTrainer(training_args())
-    dul.train_runner()
+    dul_reg = DulRegTrainer(reg_args())
+    dul_reg.train_runner()
