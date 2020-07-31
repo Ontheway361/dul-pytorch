@@ -20,7 +20,8 @@ class FullyConnectedLayer(nn.Module):
         nn.init.xavier_uniform_(self.weight)
         self.cos_m  = math.cos(args.margin)
         self.sin_m  = math.sin(args.margin)
-        self.mm     = math.sin(math.pi - self.args.margin) * self.args.margin
+        self.remain = math.sin(math.pi - self.args.margin) * self.args.margin
+        self.thresh = math.cos(math.pi - self.args.margin) 
         self.register_buffer('factor_t', torch.zeros(1))
         self.iter  = 0
         self.base  = 1000
@@ -39,10 +40,8 @@ class FullyConnectedLayer(nn.Module):
 
     def forward(self, x, label):
 
-        cos_theta  = F.linear(F.normalize(x), F.normalize(self.weight))
-        cos_theta  = cos_theta.clamp(-1, 1)
-        batch_size = label.size(0)
-        cosin_simi = cos_theta[torch.arange(0, batch_size), label].view(-1, 1)
+        cos_theta  = F.linear(F.normalize(x), F.normalize(self.weight)).clamp(-1, 1)
+        cosin_simi = cos_theta[torch.arange(0, label.size(0)), label].view(-1, 1)
 
         if self.args.fc_mode == 'softmax':
             score = cosin_simi
@@ -68,7 +67,7 @@ class FullyConnectedLayer(nn.Module):
             if self.args.easy_margin:
                 score = torch.where(cosin_simi > 0, cos_theta_m, cosin_simi)
             else:
-                score = cos_theta_m
+                score = torch.where(cosin_simi > self.thresh, cos_theta_m, cosin_simi - self.remain)
 
         elif self.args.fc_mode == 'mvcos':
             mask        = cos_theta > cosin_simi - self.args.margin

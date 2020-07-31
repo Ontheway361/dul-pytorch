@@ -26,8 +26,8 @@ class VerifyBase(data.Dataset):
 
         self.pairs = None
         if self.bmark == 'lfw':
-            self.data_dir = os.path.join(self.args.lfw_dir, 'align_112_112')
-            df_pairs = pd.read_csv(os.path.join(self.args.lfw_dir, 'anno_file/lfw_pairs.csv'))
+            self.data_dir = os.path.join(self.args.lfw_dir, 'lfw_images')
+            df_pairs = pd.read_csv(os.path.join(self.args.lfw_dir, 'lfw_pairs.csv'))
         else:
             raise TypeError('Only LFW was supported ...')
 

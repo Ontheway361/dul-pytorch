@@ -5,6 +5,7 @@ import os
 import sys
 import time
 import torch
+import shutil
 import random
 import numpy as np
 import torchvision
@@ -16,10 +17,10 @@ from torch.utils.data import DataLoader
 
 import model as mlib
 import dataset as dlib
-from config import training_args
+from config import cls_args
 
 torch.backends.cudnn.bencmark = True
-# os.environ["CUDA_VISIBLE_DEVICES"] = "6,7" # TODO
+os.environ["CUDA_VISIBLE_DEVICES"] = "3" # TODO
 
 from IPython import embed
 
@@ -55,7 +56,7 @@ class DulClsTrainer(mlib.Faster1v1):
         self.model['backbone']  = mlib.dulres_zoo(self.args.backbone, \
                                                   drop_ratio=self.args.drop_ratio, \
                                                   use_se=self.args.use_se, \
-                                                  used_as='dul_cls')  # ResBlock
+                                                  used_as=self.args.used_as)  # ResBlock
         self.model['fc_layer']  = mlib.FullyConnectedLayer(self.args)
         self.model['criterion'] = mlib.ClsLoss(self.args)
         self.model['optimizer'] = torch.optim.SGD(
@@ -212,5 +213,5 @@ class DulClsTrainer(mlib.Faster1v1):
 
 if __name__ == "__main__":
 
-    dul_cls = DulClsTrainer(training_args())
+    dul_cls = DulClsTrainer(cls_args())
     dul_cls.train_runner()

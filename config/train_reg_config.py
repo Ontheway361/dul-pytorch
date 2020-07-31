@@ -21,9 +21,10 @@ def reg_args():
     # -- model
     parser.add_argument('--backbone',   type=str,    default='dulres18')   # paper-setting
     parser.add_argument('--use_se',     type=bool,   default=True)         # IRESSE
+    parser.add_argument('--used_as',    type=bool,   default='backbone')
     parser.add_argument('--in_feats',   type=int,    default=512)
     parser.add_argument('--drop_ratio', type=float,  default=0.4)          # TODO
-    parser.add_argument('--classnum',   type=int,    default=85742)        # MS1M-mimi
+    parser.add_argument('--classnum',   type=int,    default=85164)        # MS1M-mimi
 
     # -- optimizer
     parser.add_argument('--start_epoch', type=int,   default=1)        #

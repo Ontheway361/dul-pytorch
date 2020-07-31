@@ -152,7 +152,7 @@ class DulRegTrainer(mlib.Faster1v1):
             
         freq_flag = self.result['epoch'] % self.args.save_freq == 0
         sota_flag = self.result['sota_acc'] < testinfo['test_acc']
-        save_name = '%s/epoch_%02d-lfw_opt_thresh_%.4f-racc_%.4f.pth' % \
+        save_name = '%s/epoch_%02d_lfw_opt_thresh_%.4f_racc_%.4f.pth' % \
                          (self.args.save_to, self.result['epoch'], testinfo['opt_thresh'], testinfo['test_acc'])
         if sota_flag:
             save_name = '%s/sota.pth' % self.args.save_to

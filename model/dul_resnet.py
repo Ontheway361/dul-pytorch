@@ -55,16 +55,14 @@ class IR_BasicBlock(nn.Module):
 
 
     def forward(self, x):
-
         residual = x
-        x = self.ir_basic(x)
+        out = self.ir_basic(x)
         if self.use_se:
-            x = self.se(x)
+            out = self.se(out)
         if self.downsample is not None:
-            residual = self.downsample(residual)
-        x += residual
+            residual = self.downsample(x)
         # x = self.prelu(x)  # TODO
-        return x
+        return out + residual
 
 
 class IR_Bottleneck(nn.Module):
@@ -72,7 +70,6 @@ class IR_Bottleneck(nn.Module):
     expansion = 4
 
     def __init__(self, inplanes, planes, stride=1, downsample=None, use_se=True):
-
         super(IR_Bottleneck, self).__init__()
         self.ir_bottle = nn.Sequential(
                              nn.BatchNorm2d(inplanes, eps=2e-5),
@@ -94,24 +91,22 @@ class IR_Bottleneck(nn.Module):
 
 
     def forward(self, x):
-
         residual = x
-        x = self.ir_bottle(x)
+        out = self.ir_bottle(x)
         if self.use_se:
-            x = self.se(x)
+            out = self.se(out)
         if self.downsample is not None:
-            residual = self.downsample(residual)
-        x += residual
-        x = self.prelu(x)
-        return x
+            residual = self.downsample(x)
+    
+        return self.prelu(out + residual)
 
 
 class DULResNet(nn.Module):
     def __init__(self, block, layers, feat_dim = 512, drop_ratio = 0.4, use_se = True, used_as = 'baseline'):
         '''
-        use_for = baseline : just use mu_head for deterministic model
-        use_for = dul_cls  : use both mu_head and logvar_head for dul_cls model
-        use_for = backbone : neither mu_head nor logvar_head is used, just for feature extracting.
+        used_as = baseline : just use mu_head for deterministic model
+        used_as = dul_cls  : use both mu_head and logvar_head for dul_cls model
+        used_as = backbone : neither mu_head nor logvar_head is used, just for feature extracting.
         '''
         super(DULResNet, self).__init__()
 
@@ -175,14 +170,14 @@ class DULResNet(nn.Module):
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
-        if self.use_for == 'backbone':
+        if self.used_as == 'backbone':
             mu = x
             logvar = None, 
             embedding = None
-        elif self.use_for == 'baseline':
-            mu = self.mu_head(x)
+        elif self.used_as == 'baseline':
+            mu = None
             logvar = None, 
-            embedding = None
+            embedding = self.mu_head(x)
         else:
             mu = self.mu_head(x)
             logvar = self.logvar_head(x)
@@ -205,7 +200,7 @@ def dulres_zoo(backbone = 'dulres18', feat_dim = 512, drop_ratio = 0.4, \
 
 if __name__ == "__main__":
 
-    model = dulres_zoo(backbone='dulres18', bb_type='baseline')
+    model = dulres_zoo(backbone='dulres18', used_as='baseline')
     input = torch.randn(1, 3, 112, 112)
     flops, params = thop.profile(model, inputs=(input, ))
     flops, params = thop.clever_format([flops, params], "%.3f")

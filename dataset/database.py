@@ -23,12 +23,12 @@ class DataBase(data.Dataset):
         f.close()
         if args.is_debug:
             self.lines = self.lines[:1024]  # just for debug
-            print('debug version for ms1m-mini ...')
+            print('debug version for ms1m-arcface ...')
     
     
     def _load_imginfo(self, img_name):
         
-        img_path = os.path.join(self.args.ms1m_dir, img_name)
+        img_path = os.path.join(self.args.data_dir, img_name)
         img = None
         try:
             img = cv2.imread(img_path)
