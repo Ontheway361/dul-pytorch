@@ -325,3 +325,4 @@ weighted avg     0.9729    0.9725    0.9725      6000
 verification was finished, best_thresh : 0.3015, test_acc : 0.9725
 Single epoch cost time : 106.09 mins
 epoch : 11|50, iter : 2400|7432,  loss : 0.9094, batch_ave_acc : 0.8336
+epoch : 11|50, iter : 4800|7432,  loss : 0.9468, batch_ave_acc : 0.8281
