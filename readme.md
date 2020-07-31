@@ -10,7 +10,7 @@ The following pictures are taken from the arXiv-paper, if there is a dispute abo
        <td><img src="pipeline/dul_cls.jpg" width="480" height="200" frame=void rules=none></td>
        <td><img src="pipeline/dul_reg.jpg" width="480" height="200" frame=void rules=none></td>
 </table>
-## Experiment \<br>
+## Experiment <br>
 {resnet18, softmax, ms1m}-{lfw:}
 
 
