@@ -1,0 +1,12 @@
+----------------Environment Versions----------------
+- Python    : 3.7.3 
+- PyTorch   : 1.4.0
+- TorchVison: 0.5.0
+- USE_GPU   : True
+- IS_DEBUG  : False
+----------------------------------------------------
+Single-gpu mode was going ...
+Model loading was finished ...
+There are 6000 pairs in benchmark-lfw
+Data loading was finished ...
+epoch :  1|50, iter : 2400|7432,  loss : 37.0727, batch_ave_acc : 0.0000

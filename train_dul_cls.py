@@ -20,7 +20,7 @@ import dataset as dlib
 from config import cls_args
 
 torch.backends.cudnn.bencmark = True
-os.environ["CUDA_VISIBLE_DEVICES"] = "3" # TODO
+os.environ["CUDA_VISIBLE_DEVICES"] = "2" # TODO
 
 from IPython import embed
 
@@ -107,13 +107,14 @@ class DulClsTrainer(mlib.Faster1v1):
                                  batch_size=self.args.batch_size, \
                                  shuffle=True,
                                  num_workers=self.args.workers)
-        
-        self.data['lfw'] = DataLoader(
-                               dlib.VerifyBase(self.args, benchmark = 'lfw'),
-                               batch_size=self.args.batch_size // 2, \
-                               num_workers=self.args.workers,
-                               drop_last=False,
-                               collate_fn=self.collate_fn_1v1)
+
+        for bmark in self.args.bmark_list: 
+            self.data[bmark] = DataLoader(
+                dlib.VerifyBase(self.args, benchmark=bmark),
+                batch_size=self.args.batch_size // 2, \
+                num_workers=self.args.workers,
+                drop_last=False,
+                collate_fn=self.collate_fn_1v1)
         print('Data loading was finished ...')
 
 

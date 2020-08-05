@@ -97,7 +97,6 @@ class IR_Bottleneck(nn.Module):
             out = self.se(out)
         if self.downsample is not None:
             residual = self.downsample(x)
-    
         return self.prelu(out + residual)
 
 

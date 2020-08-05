@@ -25,13 +25,15 @@ class VerifyBase(data.Dataset):
     def _load_pairfile(self):
 
         self.pairs = None
-        if self.bmark == 'lfw':
-            self.data_dir = os.path.join(self.args.lfw_dir, 'lfw_images')
-            df_pairs = pd.read_csv(os.path.join(self.args.lfw_dir, 'lfw_pairs.csv'))
+        if self.bmark in  ['lfw', 'agedb30', 'cfp_ff', 'cfp_fpi', 'akuVerDataset']:
+            self.data_dir = os.path.join(self.args.test_dir, self.bmark)
+            with open(os.path.join(self.args.test_dir, 'anno_file/%s_pair.txt' % self.bmark), 'r') as f:
+                self.pairs = f.readlines()
+            f.close()
         else:
             raise TypeError('Only LFW was supported ...')
 
-        self.pairs = df_pairs.to_numpy().tolist()
+        # self.pairs = df_pairs.to_numpy().tolist()
         if self.args.is_debug:
             self.pairs = self.pairs[:1024]
         self.num_pairs = len(self.pairs)
@@ -52,12 +54,12 @@ class VerifyBase(data.Dataset):
 
     def __getitem__(self, index):
 
-        pair_info = self.pairs[index]
+        pair_info = self.pairs[index].strip().split(' ')
         info_dict = {}
         try:
             info_dict['name1'] = pair_info[0]
             info_dict['name2'] = pair_info[1]
-            info_dict['label'] = pair_info[-1]
+            info_dict['label'] = int(pair_info[-1])
             face1 = self._load_imginfo(info_dict['name1'])
             face2 = self._load_imginfo(info_dict['name2'])
             info_dict['face1'] = self.trans(image=face1)['image'].unsqueeze(0)

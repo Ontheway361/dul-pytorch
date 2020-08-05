@@ -35,7 +35,7 @@ class Faster1v1(object):
                 imgs = imgs.view((-1, 3, imgs.size(-2), imgs.size(-1)))
                 if self.device:
                     imgs = imgs.cuda()
-                _, _, feats = self.model['backbone'](imgs)
+                feats, _, _ = self.model['backbone'](imgs)
                 norms = torch.unsqueeze(torch.norm(feats, dim=1), dim=1)
                 norms = torch.mm(norms, norms.t())
                 simis = torch.mm(feats, feats.t()) / (norms + 1e-5)
