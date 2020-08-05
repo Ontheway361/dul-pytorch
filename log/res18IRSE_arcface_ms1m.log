@@ -1199,3 +1199,99 @@ weighted avg     0.9962    0.9962    0.9962      6000
 -------------------------------------------------------------------------------------
 verification was finished, best_thresh : 0.2550, test_acc : 0.9962
 Single epoch cost time : 105.94 mins
+epoch : 39|50, iter : 2400|7432,  loss : 2.5130, batch_ave_acc : 0.6386
+epoch : 39|50, iter : 4800|7432,  loss : 2.6712, batch_ave_acc : 0.6223
+epoch : 39|50, iter : 7200|7432,  loss : 2.7733, batch_ave_acc : 0.6131
+train_loss : 2.7811
+quicky 1v1 on lfw is going ...
+fold :  0, thresh : 0.260, test_acc : 1.0000
+fold :  1, thresh : 0.250, test_acc : 0.9933
+fold :  2, thresh : 0.260, test_acc : 0.9967
+fold :  3, thresh : 0.260, test_acc : 0.9983
+fold :  4, thresh : 0.260, test_acc : 0.9933
+fold :  5, thresh : 0.280, test_acc : 0.9917
+fold :  6, thresh : 0.260, test_acc : 0.9967
+fold :  7, thresh : 0.260, test_acc : 0.9967
+fold :  8, thresh : 0.280, test_acc : 0.9933
+fold :  9, thresh : 0.260, test_acc : 0.9967
+auc : 0.9962, acc : 0.9962, precision : 0.9983, recall : 0.9940, f1_score : 0.9962
+------------------------------------ gt vs. pred ------------------------------------
+              precision    recall  f1-score   support
+
+           0     0.9940    0.9983    0.9962      3000
+           1     0.9983    0.9940    0.9962      3000
+
+    accuracy                         0.9962      6000
+   macro avg     0.9962    0.9962    0.9962      6000
+weighted avg     0.9962    0.9962    0.9962      6000
+
+[[2995    5]
+ [  18 2982]]
+-------------------------------------------------------------------------------------
+verification was finished, best_thresh : 0.2630, test_acc : 0.9962
+Single epoch cost time : 106.24 mins
+epoch : 40|50, iter : 2400|7432,  loss : 2.5262, batch_ave_acc : 0.6371
+epoch : 40|50, iter : 4800|7432,  loss : 2.6835, batch_ave_acc : 0.6210
+epoch : 40|50, iter : 7200|7432,  loss : 2.7841, batch_ave_acc : 0.6122
+train_loss : 2.7924
+quicky 1v1 on lfw is going ...
+fold :  0, thresh : 0.265, test_acc : 1.0000
+fold :  1, thresh : 0.265, test_acc : 0.9967
+fold :  2, thresh : 0.265, test_acc : 0.9967
+fold :  3, thresh : 0.265, test_acc : 0.9967
+fold :  4, thresh : 0.265, test_acc : 0.9950
+fold :  5, thresh : 0.265, test_acc : 0.9950
+fold :  6, thresh : 0.260, test_acc : 0.9950
+fold :  7, thresh : 0.265, test_acc : 0.9950
+fold :  8, thresh : 0.265, test_acc : 0.9950
+fold :  9, thresh : 0.265, test_acc : 0.9983
+auc : 0.9965, acc : 0.9965, precision : 0.9987, recall : 0.9943, f1_score : 0.9965
+------------------------------------ gt vs. pred ------------------------------------
+              precision    recall  f1-score   support
+
+           0     0.9944    0.9987    0.9965      3000
+           1     0.9987    0.9943    0.9965      3000
+
+    accuracy                         0.9965      6000
+   macro avg     0.9965    0.9965    0.9965      6000
+weighted avg     0.9965    0.9965    0.9965      6000
+
+[[2996    4]
+ [  17 2983]]
+-------------------------------------------------------------------------------------
+verification was finished, best_thresh : 0.2645, test_acc : 0.9965
+Single epoch cost time : 106.17 mins
+**************** Yahoo, SOTA model was updated ****************
+epoch : 41|50, iter : 2400|7432,  loss : 2.5265, batch_ave_acc : 0.6367
+epoch : 41|50, iter : 4800|7432,  loss : 2.6863, batch_ave_acc : 0.6208
+epoch : 41|50, iter : 7200|7432,  loss : 2.7884, batch_ave_acc : 0.6117
+train_loss : 2.7966
+quicky 1v1 on lfw is going ...
+fold :  0, thresh : 0.275, test_acc : 1.0000
+fold :  1, thresh : 0.265, test_acc : 0.9917
+fold :  2, thresh : 0.275, test_acc : 0.9967
+fold :  3, thresh : 0.275, test_acc : 0.9983
+fold :  4, thresh : 0.275, test_acc : 0.9933
+fold :  5, thresh : 0.275, test_acc : 0.9933
+fold :  6, thresh : 0.275, test_acc : 0.9950
+fold :  7, thresh : 0.255, test_acc : 0.9933
+fold :  8, thresh : 0.255, test_acc : 0.9933
+fold :  9, thresh : 0.275, test_acc : 0.9983
+auc : 0.9957, acc : 0.9957, precision : 0.9977, recall : 0.9937, f1_score : 0.9957
+------------------------------------ gt vs. pred ------------------------------------
+              precision    recall  f1-score   support
+
+           0     0.9937    0.9977    0.9957      3000
+           1     0.9977    0.9937    0.9957      3000
+
+    accuracy                         0.9957      6000
+   macro avg     0.9957    0.9957    0.9957      6000
+weighted avg     0.9957    0.9957    0.9957      6000
+
+[[2993    7]
+ [  19 2981]]
+-------------------------------------------------------------------------------------
+verification was finished, best_thresh : 0.2700, test_acc : 0.9957
+Single epoch cost time : 106.17 mins
+epoch : 42|50, iter : 2400|7432,  loss : 2.5325, batch_ave_acc : 0.6358
+epoch : 42|50, iter : 4800|7432,  loss : 2.6897, batch_ave_acc : 0.6203
