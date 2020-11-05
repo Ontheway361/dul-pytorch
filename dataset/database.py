@@ -14,6 +14,12 @@ from IPython import embed
 class DataBase(data.Dataset):
 
     def __init__(self, args):
+        """
+        Initialize the file.
+
+        Args:
+            self: (todo): write your description
+        """
 
         self.args       = args
         self.transforms = auglib.aug_naive()
@@ -27,6 +33,13 @@ class DataBase(data.Dataset):
     
     
     def _load_imginfo(self, img_name):
+        """
+        Load an image from disk.
+
+        Args:
+            self: (todo): write your description
+            img_name: (str): write your description
+        """
         
         img_path = os.path.join(self.args.data_dir, img_name)
         img = None
@@ -40,6 +53,13 @@ class DataBase(data.Dataset):
     
 
     def __getitem__(self, index):
+        """
+        Get an image
+
+        Args:
+            self: (todo): write your description
+            index: (int): write your description
+        """
 
         info = self.lines[index].strip().split(' ')
         img  = self._load_imginfo(info[0])
@@ -52,4 +72,10 @@ class DataBase(data.Dataset):
 
     
     def __len__(self):
+        """
+        Returns the number of lines in bytes.
+
+        Args:
+            self: (todo): write your description
+        """
         return len(self.lines)

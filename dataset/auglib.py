@@ -30,6 +30,11 @@ def aug_infer():
 
 
 def aug_naive():
+    """
+    Returns a tensor.
+
+    Args:
+    """
     
     return alt.Compose([
                alt.Resize(height=112, width=112),
@@ -37,6 +42,11 @@ def aug_naive():
                ToTensor()])
 
 def aug_old():
+    """
+    Augment a tensor.
+
+    Args:
+    """
     return transforms.Compose([
                transforms.Resize(size=(112, 112)), \
                transforms.ToTensor(), \

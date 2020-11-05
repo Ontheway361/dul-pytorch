@@ -10,6 +10,11 @@ ms1m_dir = osp.join(root_dir, 'face_recognition/ms1m_mini')
 cp_dir   = '/home/jovyan/jupyter/checkpoints_zoo/face-recognition/densityEstimate/experiments_dul'
 
 def cls_args():
+    """
+    Parse command line arguments.
+
+    Args:
+    """
 
     parser = argparse.ArgumentParser(description='PyTorch for DUL-classification')
 

@@ -10,6 +10,12 @@ class Faster1v1(object):
     ''' Speed up the module of the face verification during the training '''
 
     def __init__(self, args):
+        """
+        Initialize the device.
+
+        Args:
+            self: (todo): write your description
+        """
 
         self.args   = args
         self.model  = dict()
@@ -18,13 +24,32 @@ class Faster1v1(object):
 
 
     def _model_loader(self):
+        """
+        Decorator.
+
+        Args:
+            self: (todo): write your description
+        """
         pass
 
 
     def _data_loader(self):
+        """
+        Returns the data loader loader
+
+        Args:
+            self: (todo): write your description
+        """
         pass
 
     def _quickly_1v1(self, loader = 'lfw'):
+        """
+        Perform a 2d device.
+
+        Args:
+            self: (todo): write your description
+            loader: (todo): write your description
+        """
 
         self.model['backbone'].eval()
         with torch.no_grad():
@@ -46,6 +71,12 @@ class Faster1v1(object):
 
 
     def _k_folds(self):
+        """
+        Folds the k cross - means
+
+        Args:
+            self: (todo): write your description
+        """
 
         num_lines = len(self.data['similist'])
         folds, base = [], list(range(num_lines))
@@ -60,6 +91,14 @@ class Faster1v1(object):
 
 
     def _cal_acc(self, index, thresh):
+        """
+        Calculate the accuracy.
+
+        Args:
+            self: (todo): write your description
+            index: (int): write your description
+            thresh: (float): write your description
+        """
 
         gt_y, pred_y = [], []
         for row in self.data['similist'][index]:
@@ -74,6 +113,14 @@ class Faster1v1(object):
 
 
     def _find_best_thresh(self, train, test):
+        """
+        Find the best threshold.
+
+        Args:
+            self: (todo): write your description
+            train: (bool): write your description
+            test: (bool): write your description
+        """
 
         best_thresh, best_acc = 0, 0
         for thresh in np.arange(-1, 1, self.args.thresh_iv):
@@ -87,6 +134,13 @@ class Faster1v1(object):
 
 
     def calculate_acc(self, opt_thresh = 0.45):
+        """
+        Calculate accuracy
+
+        Args:
+            self: (todo): write your description
+            opt_thresh: (float): write your description
+        """
 
         gt_y       = np.array(self.data['similist'][:, -2], dtype=int)
         pred_y     = (np.array(self.data['similist'][:, -1], np.float) >= opt_thresh) * 1
@@ -106,6 +160,13 @@ class Faster1v1(object):
 
 
     def _evaluate_one_epoch(self, loader = 'lfw'):
+        """
+        Evaluate the model evaluation.
+
+        Args:
+            self: (todo): write your description
+            loader: (todo): write your description
+        """
 
         print('quicky 1v1 on %s is going ...' % loader)
         self._quickly_1v1(loader)

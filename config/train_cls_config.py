@@ -10,6 +10,11 @@ data_dir = osp.join(root_dir, 'ms1m_arcface')
 cp_dir   = '/data/relu/checkpoint/face-recognition/densityEstimate/experiments_dul'
 
 def cls_args():
+    """
+    Parse command line arguments.
+
+    Args:
+    """
 
     parser = argparse.ArgumentParser(description='PyTorch for DUL-classification')
 
