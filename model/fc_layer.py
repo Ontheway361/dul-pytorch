@@ -12,6 +12,12 @@ from IPython import embed
 class FullyConnectedLayer(nn.Module):
     ''' fully connected layer lib for face-recognition '''
     def __init__(self, args):
+        """
+        Initialize the initialization.
+
+        Args:
+            self: (todo): write your description
+        """
 
         super(FullyConnectedLayer, self).__init__()
 
@@ -39,6 +45,14 @@ class FullyConnectedLayer(nn.Module):
 
 
     def forward(self, x, label):
+        """
+        Forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+            label: (todo): write your description
+        """
 
         cos_theta  = F.linear(F.normalize(x), F.normalize(self.weight)).clamp(-1, 1)
         cosin_simi = cos_theta[torch.arange(0, label.size(0)), label].view(-1, 1)

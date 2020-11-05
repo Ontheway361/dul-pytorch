@@ -27,6 +27,12 @@ from IPython import embed
 class DulRegTrainer(mlib.Faster1v1):
 
     def __init__(self, args):
+        """
+        Initialize the faster.
+
+        Args:
+            self: (todo): write your description
+        """
 
         mlib.Faster1v1.__init__(self, args)
         self.args    = args
@@ -51,6 +57,12 @@ class DulRegTrainer(mlib.Faster1v1):
 
 
     def _model_loader(self):
+        """
+        Run the model.
+
+        Args:
+            self: (todo): write your description
+        """
 
         self.model['backbone']  = mlib.dulres_zoo(self.args.backbone, \
                                                   drop_ratio=self.args.drop_ratio, \
@@ -90,6 +102,12 @@ class DulRegTrainer(mlib.Faster1v1):
     
     @staticmethod
     def collate_fn_1v1(batch):
+        """
+        Collate multiple images into multiple images.
+
+        Args:
+            batch: (todo): write your description
+        """
         imgs, pairs_info = [], []
         for unit in batch:
             pairs_info.append([unit['name1'], unit['name2'], unit['label']])
@@ -98,6 +116,12 @@ class DulRegTrainer(mlib.Faster1v1):
     
     
     def _data_loader(self):
+        """
+        Batch function.
+
+        Args:
+            self: (todo): write your description
+        """
 
         self.data['train'] = DataLoader(
                                  dlib.DataBase(self.args),
@@ -115,6 +139,13 @@ class DulRegTrainer(mlib.Faster1v1):
 
 
     def _train_one_epoch(self, epoch = 0):
+        """
+        Train the model
+
+        Args:
+            self: (todo): write your description
+            epoch: (int): write your description
+        """
 
         self.model['backbone'].train()
         self.model['fc_layer'].train()
@@ -175,6 +206,12 @@ class DulRegTrainer(mlib.Faster1v1):
             
             
     def _dul_training(self):
+        """
+        Perform training.
+
+        Args:
+            self: (todo): write your description
+        """
 
         
         self.result['opt_thresh'] = -1.0
@@ -195,6 +232,12 @@ class DulRegTrainer(mlib.Faster1v1):
 
 
     def train_runner(self):
+        """
+        Train the runner.
+
+        Args:
+            self: (todo): write your description
+        """
 
         self._report_settings()
 

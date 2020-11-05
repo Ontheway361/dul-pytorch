@@ -10,6 +10,13 @@ from IPython import embed
 
 class Flatten(nn.Module):
     def forward(self, input):
+        """
+        Returns the forward input of the input.
+
+        Args:
+            self: (todo): write your description
+            input: (todo): write your description
+        """
         return input.view(input.size(0), -1)
     
     
@@ -19,6 +26,14 @@ class RegHead(nn.Module):
     resnet_out_channels = 512
     
     def __init__(self, feat_dim = 512, drop_ratio = 0.4):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            feat_dim: (int): write your description
+            drop_ratio: (float): write your description
+        """
         
         super(RegHead, self).__init__()
         self.gamma = nn.Parameter(torch.ones(1) * 1e-4)
@@ -42,6 +57,13 @@ class RegHead(nn.Module):
             nn.BatchNorm1d(feat_dim, eps=0.001,  affine=False))
     
     def forward(self, layer4_out):    
+        """
+        Parameters ---------- layer4 computation
+
+        Args:
+            self: (todo): write your description
+            layer4_out: (todo): write your description
+        """
         mu     = self.mu_head(layer4_out)
         logvar = self.logvar_head(layer4_out)
         logvar = self.gamma * logvar + self.beta

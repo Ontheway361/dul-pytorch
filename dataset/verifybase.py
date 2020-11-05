@@ -13,6 +13,13 @@ from IPython import embed
 class VerifyBase(data.Dataset):
 
     def __init__(self, args, benchmark = 'lfw'):
+        """
+        Initialize the benchmark.
+
+        Args:
+            self: (todo): write your description
+            benchmark: (todo): write your description
+        """
 
         super(VerifyBase).__init__()
         self.args  = args
@@ -23,6 +30,12 @@ class VerifyBase(data.Dataset):
 
 
     def _load_pairfile(self):
+        """
+        Load pairs of pairs.
+
+        Args:
+            self: (todo): write your description
+        """
 
         self.pairs = None
         if self.bmark in  ['lfw', 'agedb30', 'cfp_ff', 'cfp_fpi', 'akuVerDataset']:
@@ -41,6 +54,13 @@ class VerifyBase(data.Dataset):
 
 
     def _load_imginfo(self, img_name):
+        """
+        Load an image from disk.
+
+        Args:
+            self: (todo): write your description
+            img_name: (str): write your description
+        """
 
         img_path = os.path.join(self.data_dir, img_name)
         img = None
@@ -53,6 +73,13 @@ class VerifyBase(data.Dataset):
 
 
     def __getitem__(self, index):
+        """
+        Extract image information from image index.
+
+        Args:
+            self: (todo): write your description
+            index: (int): write your description
+        """
 
         pair_info = self.pairs[index].strip().split(' ')
         info_dict = {}
@@ -70,4 +97,10 @@ class VerifyBase(data.Dataset):
         return info_dict
 
     def __len__(self):
+        """
+        Return the number of rows.
+
+        Args:
+            self: (todo): write your description
+        """
         return self.num_pairs

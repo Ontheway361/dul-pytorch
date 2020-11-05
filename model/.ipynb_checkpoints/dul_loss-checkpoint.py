@@ -12,12 +12,28 @@ class ClsLoss(nn.Module):
     ''' Classic loss function for face recognition '''
 
     def __init__(self, args):
+        """
+        Initialize the class
+
+        Args:
+            self: (todo): write your description
+        """
 
         super(ClsLoss, self).__init__()
         self.args     = args
 
 
     def forward(self, predy, target, mu = None, logvar = None):
+        """
+        Calculate the model
+
+        Args:
+            self: (todo): write your description
+            predy: (todo): write your description
+            target: (todo): write your description
+            mu: (todo): write your description
+            logvar: (todo): write your description
+        """
 
         loss = None
         if self.args.loss_mode == 'focal_loss':
@@ -46,6 +62,14 @@ class ClsLoss(nn.Module):
 class RegLoss(nn.Module):
 
     def __init__(self, feat_dim = 512, classnum = 85742):
+        """
+        Initialize the gradient.
+
+        Args:
+            self: (todo): write your description
+            feat_dim: (int): write your description
+            classnum: (int): write your description
+        """
         super(RegLoss, self).__init__()
         self.feat_dim = feat_dim
         self.classnum = classnum
@@ -53,6 +77,13 @@ class RegLoss(nn.Module):
         
         
     def fetch_center_from_fc_layer(self, fc_state_dict):
+        """
+        Fetch the center of a fetch model.
+
+        Args:
+            self: (todo): write your description
+            fc_state_dict: (dict): write your description
+        """
         weights_key = 'module.weight' if 'module.weight' in fc_state_dict.keys() else 'weight'
         try:
             weights = fc_state_dict[weights_key]
@@ -66,6 +97,15 @@ class RegLoss(nn.Module):
 
             
     def forward(self, mu, logvar, labels):
+        """
+        Calculate the loss
+
+        Args:
+            self: (todo): write your description
+            mu: (todo): write your description
+            logvar: (todo): write your description
+            labels: (todo): write your description
+        """
         fit_loss = (self.fc_weights[labels] - mu).pow(2) / (1e-10 + torch.exp(logvar))
         reg_loss = (fit_loss + logvar) / 2.0
         reg_loss = torch.sum(reg_loss, dim=1).mean()

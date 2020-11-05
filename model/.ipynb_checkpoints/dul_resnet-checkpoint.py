@@ -12,12 +12,27 @@ from IPython import embed
 
 class Flatten(nn.Module):
     def forward(self, input):
+        """
+        Returns the forward input of the input.
+
+        Args:
+            self: (todo): write your description
+            input: (todo): write your description
+        """
         return input.view(input.size(0), -1)
 
 
 class SEBlock(nn.Module):
     ''' Squeeze and Excitation Module '''
     def __init__(self, channels, reduction = 16):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            channels: (list): write your description
+            reduction: (todo): write your description
+        """
 
         super(SEBlock, self).__init__()
         self.se_layer = nn.Sequential(
@@ -28,6 +43,13 @@ class SEBlock(nn.Module):
                             nn.Sigmoid())
 
     def forward(self, x):
+        """
+        Forward computation.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         return x * self.se_layer(x)
 
 
@@ -36,6 +58,17 @@ class IR_BasicBlock(nn.Module):
     expansion = 1
 
     def __init__(self, inplanes, planes, stride=1, downsample=None, use_se=True):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            inplanes: (todo): write your description
+            planes: (todo): write your description
+            stride: (int): write your description
+            downsample: (todo): write your description
+            use_se: (bool): write your description
+        """
 
         super(IR_BasicBlock, self).__init__()
         self.ir_basic = nn.Sequential(
@@ -55,6 +88,13 @@ class IR_BasicBlock(nn.Module):
 
 
     def forward(self, x):
+        """
+        Forward forward forward algorithm.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
 
         residual = x
         x = self.ir_basic(x)
@@ -72,6 +112,17 @@ class IR_Bottleneck(nn.Module):
     expansion = 4
 
     def __init__(self, inplanes, planes, stride=1, downsample=None, use_se=True):
+        """
+        Initialize the network.
+
+        Args:
+            self: (todo): write your description
+            inplanes: (todo): write your description
+            planes: (todo): write your description
+            stride: (int): write your description
+            downsample: (todo): write your description
+            use_se: (bool): write your description
+        """
 
         super(IR_Bottleneck, self).__init__()
         self.ir_bottle = nn.Sequential(
@@ -94,6 +145,13 @@ class IR_Bottleneck(nn.Module):
 
 
     def forward(self, x):
+        """
+        Perform algorithm.
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
 
         residual = x
         x = self.ir_bottle(x)
@@ -148,6 +206,16 @@ class DULResNet(nn.Module):
 
 
     def _make_layer(self, block, planes, blocks, stride=1):
+        """
+        Make a layer.
+
+        Args:
+            self: (todo): write your description
+            block: (todo): write your description
+            planes: (todo): write your description
+            blocks: (todo): write your description
+            stride: (int): write your description
+        """
         downsample = None
         if stride != 1 or self.inplanes != planes * block.expansion:
             downsample = nn.Sequential(
@@ -164,12 +232,27 @@ class DULResNet(nn.Module):
 
 
     def _reparameterize(self, mu, logvar):
+        """
+        Reparameters
+
+        Args:
+            self: (todo): write your description
+            mu: (todo): write your description
+            logvar: (bool): write your description
+        """
         std = torch.exp(logvar).sqrt()
         epsilon = torch.randn_like(std)
         return mu + epsilon * std
 
     
     def forward(self, x):
+        """
+        Evaluate the model
+
+        Args:
+            self: (todo): write your description
+            x: (todo): write your description
+        """
         x = self.layer0(x)
         x = self.layer1(x)
         x = self.layer2(x)
@@ -192,6 +275,16 @@ class DULResNet(nn.Module):
     
 def dulres_zoo(backbone = 'dulres18', feat_dim = 512, drop_ratio = 0.4, \
                use_se = True, used_as = 'baseline'):
+    """
+    Constructs a dulresNet
+
+    Args:
+        backbone: (todo): write your description
+        feat_dim: (int): write your description
+        drop_ratio: (todo): write your description
+        use_se: (bool): write your description
+        used_as: (todo): write your description
+    """
     zoo_dict = {
         'dulres18' : [2, 2, 2, 2],
         'dulres50' : [3, 4, 6, 3],
